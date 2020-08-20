@@ -1,13 +1,21 @@
 ---
 title: My Second Post!
 date: "2015-05-06T23:46:37.121Z"
+description: "This is my second blog post"
 ---
 
-Wow! I love blogging so much already.
+I never knew that blogging with gatsby will be so simple. 
 
-Did you know that "despite its name, salted duck eggs can also be made from
-chicken eggs, though the taste and texture will be somewhat different, and the
-egg yolk will be less rich."?
-([Wikipedia Link](https://en.wikipedia.org/wiki/Salted_duck_egg))
+## Word count in scala
 
-Yeah, I didn't either.
+```
+val textFile = sc.textFile("hdfs://...")
+val counts = textFile.flatMap(line => line.split(" "))
+                 .map(word => (word, 1))
+                 .reduceByKey(_ + _)
+counts.saveAsTextFile("hdfs://...")
+```
+### Big Data Heading 2 
+#### Big Data Heading 3 
+##### Big Data Heading 4
+

@@ -1,22 +1,23 @@
 ---
-title: Hello World
+title: Hello in to the Big data World
 date: "2015-05-01T22:12:03.284Z"
-description: "Hello World"
+description: "Hello Big data World"
 ---
+This is our first blog where we explain about latest happenings in big data and cloud. Also we will take you to the indepth analysis of various tech concepts. 
 
-This is my first post on my new fake blog! How exciting!
+[Big Data](https://en.wikipedia.org/wiki/Big_data).
 
-I'm sure I'll write a lot more interesting things in the future.
+ > The term has been in use since the 1990s, with some giving credit to 
+ > John Mashey for popularizing the term.[15][16] Big data usually includes 
+ > data sets with sizes beyond the ability of commonly used software tools 
+ > to capture, curate, manage, and process data within a tolerable elapsed 
+ > time.[17] Big data philosophy encompasses unstructured, semi-structured 
+ > and structured data, however the main focus is on unstructured data.[18] 
+ > Big data "size" is a constantly moving target, as of 2012 ranging from a 
+ > few dozen terabytes to many zettabytes of data.[19] Big data requires a 
+ > set of techniques and technologies with new forms of integration to reveal 
+ > insights from data-sets that are diverse, complex, and of a massive scale.[20]
 
-Oh, and here's a great quote from this Wikipedia on
-[salted duck eggs](https://en.wikipedia.org/wiki/Salted_duck_egg).
 
-> A salted duck egg is a Chinese preserved food product made by soaking duck
-> eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-> supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-> charcoal paste. The eggs may also be sold with the salted paste removed,
-> wrapped in plastic, and vacuum packed. From the salt curing process, the
-> salted duck eggs have a briny aroma, a gelatin-like egg white and a
-> firm-textured, round yolk that is bright orange-red in color.
 
-![Chinese Salty Egg](./salty_egg.jpg)
+![Big Data Ecosystem](./big-data.jpg)

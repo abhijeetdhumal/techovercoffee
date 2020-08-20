@@ -1,14 +1,16 @@
 module.exports = {
+  pathPrefix: "/techovercoffee",
+
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `TechOverCoffee`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Abhijeet & Pari`,
+      summary: `Abhijeet who lives in Munich and & Pari who lives in Brussels who builds scalable big data applications.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    description: `A blog speakimg all about the data`,
+    siteUrl: `https://abhijeetdhumal.github.io/techovercoffee/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `abhijeetdhumal`,
     },
   },
   plugins: [
@@ -76,6 +78,7 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
