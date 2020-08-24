@@ -1,7 +1,7 @@
 const isProd = process.env.NODE_ENV === 'production'
 module.exports = {
   siteMetadata: {
-    title: `Backtracking.dev`,
+    title: `Backtracking Dev`,
     author: `Abhijeet Dhumal & Pariksheet Barapatre`,
     description: `Writing about latest tech in Cloud and data space`,
     siteUrl: `https://abhijeetdhumal.github.io/techovercoffee/`,
