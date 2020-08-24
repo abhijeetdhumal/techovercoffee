@@ -9,6 +9,8 @@ module.exports = {
       twitter: `abhijeetdhumal`,
     },
   },
+  pathPrefix: "/techovercoffee/",
+
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
