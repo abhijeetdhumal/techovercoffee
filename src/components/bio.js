@@ -6,27 +6,18 @@
  */
 
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
 import { rhythm } from "../utils/typography"
 
-const Bio = () => {
+import { authors } from "../globals"
+
+const Bio = ({author: postWriter = ''}) => {
   const data = useStaticQuery(graphql`
     query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-        childImageSharp {
-          fixed(width: 50, height: 50) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
       site {
         siteMetadata {
-          author {
-            name
-            summary
-          }
+          author
           social {
             twitter
           }
@@ -35,7 +26,26 @@ const Bio = () => {
     }
   `)
 
-  const { author, social } = data.site.siteMetadata
+  let author = {
+    slug: '',
+    name: '',
+    twitter: '',
+	drupal: ''
+  };
+  if (authors[postWriter]) {
+    author.name = authors[postWriter].name;
+    author.slug = postWriter;
+    author.twitter = authors[postWriter].twitter;
+	author.drupal = authors[postWriter].drupal;
+    author.bio = authors[postWriter].bio;
+  } else {
+    const { author: blogWriter, social } = data.site.siteMetadata;
+    author.name = blogWriter;
+    author.slug = 'trishul';
+    author.twitter = social.twitter;
+	author.drupal = social.drupal;
+  }
+
   return (
     <div
       style={{
@@ -43,25 +53,44 @@ const Bio = () => {
         marginBottom: rhythm(2.5),
       }}
     >
-      <Image
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author.name}
+      <Link
+        to={`/author/${author.slug}`}
         style={{
+          minWidth: 50,
+          minHeight: 50,
           marginRight: rhythm(1 / 2),
           marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
+          overflow: `hidden`,
+          boxShadow: 'none'
         }}
-        imgStyle={{
-          borderRadius: `50%`,
-        }}
-      />
+      >
+        <img
+          alt={author.name}
+          style={{
+            width: 50,
+            height: `auto`,
+            borderRadius: `100%`,
+          }}
+          src={`/${author.slug}.jpg`}
+        />
+      </Link>
       <p>
-        Written by <strong>{author.name}</strong> {author.summary}
-        {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
-        </a>
+        <strong>{author.name}</strong> {author.bio}.
+        <br/> 
+        {
+          (author.twitter && author.twitter !== "") ?
+          (<a target="_blank" rel="noopener noreferrer" href={`https://twitter.com/${author.twitter}`}>
+            @{author.twitter}
+          </a>):
+          null
+		    }
+        {
+          (author.drupal && author.drupal !== "") ?
+          (<div> Drupal Profile: <a target="_blank" rel="noopener noreferrer" href={`https://drupal.org/u/${author.drupal}`}>
+              {author.drupal}</a>
+          </div>):
+          null
+        }
       </p>
     </div>
   )

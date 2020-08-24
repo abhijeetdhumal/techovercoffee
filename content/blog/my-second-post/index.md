@@ -1,7 +1,12 @@
 ---
 title: My Second Post!
-date: "2015-05-06T23:46:37.121Z"
-description: "This is my second blog post"
+date: "2020-08-23T23:46:37.121Z"
+slug: /my-second-post/
+show: true
+author: abhi
+tags: 
+    - Second
+    - code
 ---
 
 I never knew that blogging with gatsby will be so simple. 
