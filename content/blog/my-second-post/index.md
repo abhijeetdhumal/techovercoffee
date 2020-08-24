@@ -2,7 +2,7 @@
 title: My Second Post!
 date: "2020-08-23T23:46:37.121Z"
 slug: /my-second-post/
-show: true
+show: false
 author: abhi
 tags: 
     - Second

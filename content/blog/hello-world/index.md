@@ -7,7 +7,7 @@ tags:
   - irc
   - bouncer
   - how-to
-show: true
+show: false
 author: pari    
 featuredImage: ../../assets/docker.png
 ---
