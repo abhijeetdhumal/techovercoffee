@@ -1,7 +1,15 @@
 ---
 title: Hello in to the Big data World
 date: "2015-05-01T22:12:03.284Z"
-description: "Hello Big data World"
+description: "Hello World, first blog post"
+slug: 'hello-world'
+tags:
+  - irc
+  - bouncer
+  - how-to
+show: true
+author: pari    
+featuredImage: ../../assets/docker.png
 ---
 This is our first blog where we explain about latest happenings in big data and cloud. Also we will take you to the indepth analysis of various tech concepts. 
 
