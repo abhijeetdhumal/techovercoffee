@@ -97,7 +97,7 @@ module.exports = {
               }
             `,
             output: "/rss.xml",
-            title: "itsopensource RSS Feed"
+            title: "backtracking.dev RSS Feed"
           },
         ],
       },
