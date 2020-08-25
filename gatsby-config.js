@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     title: `Backtracking Dev`,
     author: `Abhijeet Dhumal & Pariksheet Barapatre`,
-    description: `We write all about the cloud and data technologies, indepth and in detail with examples`,
+    description: `We write about the cloud and data technologies, indepth and in detail analysis with examples`,
     siteUrl: `https://backtracking.dev`,
     social: {
       twitter: `abhijeetdhumal`,
