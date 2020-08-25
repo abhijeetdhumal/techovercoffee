@@ -51,12 +51,6 @@ module.exports = {
               head: true
             },
           },
-          {
-            resolve: `gatsby-plugin-disqus`,
-            options: {
-              shortname: `backtrackingdev`
-            }
-          },
         ],
       },
     },
