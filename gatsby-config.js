@@ -3,8 +3,8 @@ module.exports = {
   siteMetadata: {
     title: `Backtracking Dev`,
     author: `Abhijeet Dhumal & Pariksheet Barapatre`,
-    description: `Writing about latest tech in Cloud and data space`,
-    siteUrl: `https://abhijeetdhumal.github.io/techovercoffee/`,
+    description: `We write all about the cloud and data technologies, indepth and in detail with examples`,
+    siteUrl: `https://backtracking.dev`,
     social: {
       twitter: `abhijeetdhumal`,
     },
@@ -50,6 +50,12 @@ module.exports = {
               trackingId: "UA-176302969-1",
               head: true
             },
+          },
+          {
+            resolve: `gatsby-plugin-disqus`,
+            options: {
+              shortname: `backtrackingdev`
+            }
           },
         ],
       },
