@@ -8,7 +8,8 @@ tags:
   - salesforce
   - confluent-connector
 show: true
-author: pari    
+author: pari 
+featuredImage: ./apache-kafka.png   
 ---
 
 Recently, I have been trying to develop quick proof of concept using salesforce-kafka connector provided by confluent. 

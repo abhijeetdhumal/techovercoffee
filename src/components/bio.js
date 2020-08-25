@@ -41,7 +41,7 @@ const Bio = ({author: postWriter = ''}) => {
   } else {
     const { author: blogWriter, social } = data.site.siteMetadata;
     author.name = blogWriter;
-    author.slug = 'trishul';
+    author.slug = 'abhi';
     author.twitter = social.twitter;
 	author.drupal = social.drupal;
   }
