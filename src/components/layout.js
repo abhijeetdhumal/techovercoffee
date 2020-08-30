@@ -64,7 +64,7 @@ class Layout extends React.Component {
         <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ac9346d1-4404-418a-b759-8d4121912bbf" data-blockingmode="auto" type="text/javascript"></script>
         </header>
         <main>{children}</main>
-        <script id="CookieDeclaration" src="https://consent.cookiebot.com/ac9346d1-4404-418a-b759-8d4121912bbf/cd.js" type="text/javascript" async></script>
+        
       </div>
     )
   }
