@@ -7,6 +7,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "../styles/post.css";
 import { rhythm, scale } from "../utils/typography"
+import { Disqus, CommentCount } from 'gatsby-plugin-disqus';
+
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -15,6 +17,14 @@ class BlogPostTemplate extends React.Component {
     const { previous, next, slug } = this.props.pageContext
     const tags = post.frontmatter.tags || []
     const featuredImgFluid = post.frontmatter.featuredImage && post.frontmatter.featuredImage.childImageSharp.fluid
+    const siteUrl = this.props.data.siteUrl
+
+    
+    const disqusConfig = {
+      url: `${siteUrl}/${post.frontmatter.language}${post.frontmatter.slug}`,
+      identifier: `/${post.frontmatter.language}${post.frontmatter.slug}`,
+      title: post.frontmatter.title,
+    };
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -91,6 +101,8 @@ class BlogPostTemplate extends React.Component {
             </li>
           </ul>
         </nav>
+        <Disqus config={disqusConfig} />
+
       </Layout>
     )
   }
@@ -126,3 +138,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+
