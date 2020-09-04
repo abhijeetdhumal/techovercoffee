@@ -16,8 +16,7 @@ class BlogPostTemplate extends React.Component {
     const { previous, next, slug } = this.props.pageContext
     const tags = post.frontmatter.tags || []
     const featuredImgFluid = post.frontmatter.featuredImage && post.frontmatter.featuredImage.childImageSharp.fluid
-    const siteUrl = this.props.data
-    alert(JSON.stringify(siteUrl))
+    const siteUrl = this.props.data.site.siteMetadata.siteUrl
     
     const disqusConfig = {
       url: `${siteUrl}/${post.frontmatter.language}${slug}`,
