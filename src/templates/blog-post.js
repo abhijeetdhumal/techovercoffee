@@ -9,7 +9,6 @@ import "../styles/post.css";
 import { rhythm, scale } from "../utils/typography"
 import { Disqus, CommentCount } from 'gatsby-plugin-disqus';
 
-
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
@@ -17,12 +16,12 @@ class BlogPostTemplate extends React.Component {
     const { previous, next, slug } = this.props.pageContext
     const tags = post.frontmatter.tags || []
     const featuredImgFluid = post.frontmatter.featuredImage && post.frontmatter.featuredImage.childImageSharp.fluid
-    const siteUrl = this.props.data.siteUrl
-
+    const siteUrl = this.props.data
+    alert(JSON.stringify(siteUrl))
     
     const disqusConfig = {
-      url: `${siteUrl}/${post.frontmatter.language}${post.frontmatter.slug}`,
-      identifier: `/${post.frontmatter.language}${post.frontmatter.slug}`,
+      url: `${siteUrl}/${post.frontmatter.language}${slug}`,
+      identifier: `/${post.frontmatter.language}${slug}`,
       title: post.frontmatter.title,
     };
 
@@ -115,6 +114,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
