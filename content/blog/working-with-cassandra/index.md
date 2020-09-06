@@ -1,6 +1,6 @@
 ---
 title: Testing cassandra at scale
-date: "2020-08-24T22:12:03.284Z"
+date: "2020-09-06T17:00:03.284Z"
 description: "Salesforce Connector for Confluent Platform(Kafka)"
 slug: 'testing-cassandra-at-scale'
 tags:
