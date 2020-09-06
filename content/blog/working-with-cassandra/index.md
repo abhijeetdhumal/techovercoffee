@@ -1,7 +1,7 @@
 ---
 title: Testing cassandra at scale
 date: "2020-09-06T17:00:03.284Z"
-description: "learnings while testing cassandra at scale"
+description: "Summary of learnings while testing cassandra at scale"
 slug: 'testing-cassandra-at-scale'
 tags:
   - cassandra
