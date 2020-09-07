@@ -5,7 +5,7 @@ export const authors = {
     twitter: "trishulgoel"
   },
   abhi: {
-    bio: " is a professional software developer; writes code for living",
+    bio: " is a professional software developer; has a strong experience of designing and developing distributed, big data and cloud applications",
     name: "Abhijeet Dhumal",
     twitter: "abhijeetdhumal"
   },
