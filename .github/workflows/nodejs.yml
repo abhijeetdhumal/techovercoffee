@@ -1,25 +1,17 @@
-name: Node CI
+name: Gatsby Publish
 
-on: [push]
+on:
+  push:
+    branches: [ master ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.x]
-
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v2
+    - name: Gatsby Publish
+      uses: enriikke/gatsby-gh-pages-action@v2.1.1
       with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install, build
-      run: |
-        npm ci
-        npm run deploy --if-present
-      env:
-        CI: true
+        access-token: ${{ secrets.ACCESS_TOKEN }}
+        deploy-branch: gh-pages
+        gatsby-args: --prefix-paths
