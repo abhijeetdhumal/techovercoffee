@@ -10,7 +10,7 @@ export const authors = {
     twitter: "abhijeetdhumal"
   },
   pari: {
-    bio: " is a professional software developer; writes code for living",
+    bio: " is a professional software developer and passinate data engineer",
     name: "Pariksheet Barapatre",
     twitter: "PariksheetB"
   },
