@@ -35,7 +35,7 @@ export default function HTML(props) {
               if (window.location.href.includes("localhost")) return;
               // Analytics
               let query = "v=1";
-              query += "&tid=UA-155141542-1"; // tracking ID
+              query += "&tid=UA-176302969-1"; // tracking ID
               query += "&cid=" + ts; // client ID -> faking as timestamp
               if (document.referrer) query += "&dr="+ encodeURIComponent(document.referrer);
               query += "&ds=web"; // event from
