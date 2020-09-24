@@ -10,7 +10,7 @@ export const authors = {
     twitter: "abhijeetdhumal"
   },
   pari: {
-    bio: " is a professional software developer and passinate data engineer",
+    bio: " is a professional data engineer; loves distributed systems and sql. He also maintains https://xpatris.com for expats in Belgium",
     name: "Pariksheet Barapatre",
     twitter: "PariksheetB"
   },
