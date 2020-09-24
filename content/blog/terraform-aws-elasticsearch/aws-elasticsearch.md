@@ -16,7 +16,7 @@ featuredImage: ./es-terraform.jpg
 
 Amazon elasticsearch service is a popular choice for many aws clients for log analytics and visualization use cases. One common scenario is to have elasticsearch (indexing engine) only accessible within vpc and kibana (visualization engine) to be available over the internet through an authentication mechanism. 
 
-Amazon elasticsearch service is a combo of elasticsearch and kibana, and we cannot provision two components separately. However, the aws team provided the hack to achieve the desired setup using Nginx and Cognito authentication.
+Amazon elasticsearch service is a combo of elasticsearch and kibana, and we cannot spawn two components separately. However, the aws team provided the hack to achieve the desired setup using Nginx and Cognito authentication.
 
 Detailed documentation available at [aws](https://aws.amazon.com/premiumsupport/knowledge-center/kibana-outside-vpc-nginx-elasticsearch/). I referred the same documentation when I first launched the elasticsearch service, but it is quite a lengthy process to get it running. Hence, I thought of creating a Terraform IaC script, handy, and prod ready for deployment. 
 
@@ -50,16 +50,16 @@ Terraform quick code walkthrough:
         - elasticsearch
             <p> Module consists of three sub modules. </p>
             - cognito
-                <p> Create user pool and indentity pool</p>
+                <p> Create user pool and indentity pool. </p>
             - elasticsearch_domain
                 <p> Create elasticsearch domain with cognito authentication. </p>
             - nginx
                 <p> Launch nginx instance and configure it to access kibana. </p>
         - vpc
             - vpc_base
-                <p> Create vpc, subnets, route tables and internet gatway </p>
+                <p> Create vpc, subnets, route tables and internet gatway. </p>
             - vpc_sg
-                <p> Create security groups and ingress/egress rules </p>
+                <p> Create security groups and ingress/egress rules. </p>
 - input variables
 ``` terraform variable "AWS_REGION" { description = "aws region" }
 variable "PREFIX" { description = "Typically project name" }
@@ -91,7 +91,7 @@ nginx = {
 terraform apply
 ```
 
-This blog post did not cover terraform basics on how to write each component. There is good material available over web. I have created a bootcamp for terraform beginner, here is the [github](https://github.com/pariksheet/terraform-bootcamp) link.
+This blog post did not cover terraform basics on how to write each component. There are good materials available over web. I have created a bootcamp for terraform noobs, here is the [github](https://github.com/pariksheet/terraform-bootcamp) link.
 
 Feel free to ask any specific question over comment section.
 
