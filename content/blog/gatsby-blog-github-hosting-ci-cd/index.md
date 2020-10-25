@@ -6,8 +6,9 @@ slug: "gatsby-blog-github-hosting-ci-cd"
 tags:
   - Gatsby
   - CI/CD
-  - Continuous_deployment
-  - blog_hosting
+  - Continuous deployment
+  - blog hosting
+  - experiece
 show: true
 author: abhi
 ---
