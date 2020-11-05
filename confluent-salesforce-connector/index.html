@@ -1,0 +1,346 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:100%/1.75 'Merriweather','Georgia',serif;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.9);font-family:'Merriweather','Georgia',serif;font-weight:400;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;color:inherit;font-family:Montserrat,sans-serif;font-weight:900;text-rendering:optimizeLegibility;font-size:2.5rem;line-height:1.1;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;color:inherit;font-family:'Merriweather','Georgia',serif;font-weight:900;text-rendering:optimizeLegibility;font-size:1.73286rem;line-height:1.1;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;color:inherit;font-family:'Merriweather','Georgia',serif;font-weight:900;text-rendering:optimizeLegibility;font-size:1.4427rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;color:inherit;font-family:'Merriweather','Georgia',serif;font-weight:900;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;letter-spacing:0.140625em;text-transform:uppercase;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;color:inherit;font-family:'Merriweather','Georgia',serif;font-weight:900;text-rendering:optimizeLegibility;font-size:0.83255rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;color:inherit;font-family:'Merriweather','Georgia',serif;font-weight:900;text-rendering:optimizeLegibility;font-size:0.75966rem;line-height:1.1;font-style:italic;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}ul{margin-left:1.75rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;list-style-position:outside;list-style-image:none;list-style:disc;}ol{margin-left:1.75rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;font-size:0.85rem;line-height:1.75rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;font-size:1rem;line-height:1.75rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}blockquote{margin-left:-1.75rem;margin-right:1.75rem;margin-top:0;padding-bottom:0;padding-left:1.42188rem;padding-right:0;padding-top:0;margin-bottom:1.75rem;font-size:1.20112rem;line-height:1.75rem;color:hsla(0,0%,0%,0.59);font-style:italic;border-left:0.32813rem solid hsla(0,0%,0%,0.9);}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.75rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.75rem;}b{font-weight:700;}strong{font-weight:700;}dt{font-weight:700;}th{font-weight:700;}li{margin-bottom:calc(1.75rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.75rem;margin-bottom:calc(1.75rem / 2);margin-top:calc(1.75rem / 2);}li > ul{margin-left:1.75rem;margin-bottom:calc(1.75rem / 2);margin-top:calc(1.75rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(1.75rem / 2);}code{font-size:0.85rem;line-height:1.75rem;}kbd{font-size:0.85rem;line-height:1.75rem;}samp{font-size:0.85rem;line-height:1.75rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.16667rem;padding-right:1.16667rem;padding-top:0.875rem;padding-bottom:calc(0.875rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}blockquote > :last-child{margin-bottom:0;}blockquote cite{font-size:1rem;line-height:1.75rem;color:hsla(0,0%,0%,0.9);font-weight:400;}blockquote cite:before{content:"— ";}ul,ol{margin-left:0;}@media only screen and (max-width:480px){ul,ol{margin-left:1.75rem;}blockquote{margin-left:-1.3125rem;margin-right:0;padding-left:0.98438rem;}}h1,h2,h3,h4,h5,h6{margin-top:3.5rem;}a{box-shadow:0 1px 0 0 currentColor;color:#007acc;text-decoration:none;}a:hover,a:active{box-shadow:none;}mark,ins{background:#007acc;color:white;padding:0.10938rem 0.21875rem;text-decoration:none;}a.gatsby-resp-image-link{box-shadow:none;}</style><style data-href="/styles.cb543765be1fef026fc6.css">@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:100;src:local("Montserrat Thin "),local("Montserrat-Thin"),url(/static/montserrat-latin-100-191cc9f50f3b76b9617cb383f19acb7d.woff2) format("woff2"),url(/static/montserrat-latin-100-370318464551d5f25b0f0a78f374faac.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:100;src:local("Montserrat Thin italic"),local("Montserrat-Thinitalic"),url(/static/montserrat-latin-100italic-bdeaeb79db315697bd173a55b097dc18.woff2) format("woff2"),url(/static/montserrat-latin-100italic-ecf7d49386e8f265878e735db34a7c4b.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:200;src:local("Montserrat Extra Light "),local("Montserrat-Extra Light"),url(/static/montserrat-latin-200-85d5ef9db7f2dc6979172a4a3b2c57cb.woff2) format("woff2"),url(/static/montserrat-latin-200-1fc98e126a3d152549240e6244d7e669.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:200;src:local("Montserrat Extra Light italic"),local("Montserrat-Extra Lightitalic"),url(/static/montserrat-latin-200italic-49095760a498d024fe1a85a078850df9.woff2) format("woff2"),url(/static/montserrat-latin-200italic-fe46cf8b9462c820457d3bf537e4057f.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:300;src:local("Montserrat Light "),local("Montserrat-Light"),url(/static/montserrat-latin-300-7c3daf12b706645b5d3710f863a4da04.woff2) format("woff2"),url(/static/montserrat-latin-300-8dc95fab9cf98d02ca8d76e97d3dff60.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:300;src:local("Montserrat Light italic"),local("Montserrat-Lightitalic"),url(/static/montserrat-latin-300italic-f20b178ca2024a5eac8e42e6649db86c.woff2) format("woff2"),url(/static/montserrat-latin-300italic-3fe16939288856e8e828fa2661bf2354.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:400;src:local("Montserrat Regular "),local("Montserrat-Regular"),url(/static/montserrat-latin-400-bc3aa95dca08f5fee5291e34959c27bc.woff2) format("woff2"),url(/static/montserrat-latin-400-8102c4838f9e3d08dad644290a9cb701.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:400;src:local("Montserrat Regular italic"),local("Montserrat-Regularitalic"),url(/static/montserrat-latin-400italic-5cad650422a7184467af5a4d17b264c4.woff2) format("woff2"),url(/static/montserrat-latin-400italic-d191f22af3bb50902b99ac577f81a322.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:500;src:local("Montserrat Medium "),local("Montserrat-Medium"),url(/static/montserrat-latin-500-92d16e458625f4d2c8940f6bdca0ff09.woff2) format("woff2"),url(/static/montserrat-latin-500-8b763220218ffc11c57c84ddb80e7b26.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:500;src:local("Montserrat Medium italic"),local("Montserrat-Mediumitalic"),url(/static/montserrat-latin-500italic-47bfcca6b69d6a9acca7a8bff17193e2.woff2) format("woff2"),url(/static/montserrat-latin-500italic-72c01f753c3940c0b9cb6bf2389caddf.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:600;src:local("Montserrat SemiBold "),local("Montserrat-SemiBold"),url(/static/montserrat-latin-600-6fb1b5623e528e27c18658fecf5ee0ee.woff2) format("woff2"),url(/static/montserrat-latin-600-7c839d15a6f54e7025ba8c0c4b333e8f.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:600;src:local("Montserrat SemiBold italic"),local("Montserrat-SemiBolditalic"),url(/static/montserrat-latin-600italic-60789af1c9338ed1a9546722ec54b4f7.woff2) format("woff2"),url(/static/montserrat-latin-600italic-f3d4de8d0afb19e777c79032ce828e3d.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:700;src:local("Montserrat Bold "),local("Montserrat-Bold"),url(/static/montserrat-latin-700-39d93cf678c740f9f6b2b1cfde34bee3.woff2) format("woff2"),url(/static/montserrat-latin-700-80f10bd382f0df1cd650fec59f3c9394.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:700;src:local("Montserrat Bold italic"),local("Montserrat-Bolditalic"),url(/static/montserrat-latin-700italic-ba136d97b14e82284dd595e257f11c47.woff2) format("woff2"),url(/static/montserrat-latin-700italic-8c98142b425630821139c24bd1698700.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:800;src:local("Montserrat ExtraBold "),local("Montserrat-ExtraBold"),url(/static/montserrat-latin-800-b7018be9ed6cd94da8b6675b3a468c3b.woff2) format("woff2"),url(/static/montserrat-latin-800-9a9befcf50d64f9d2d19d8b1d1984add.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:800;src:local("Montserrat ExtraBold italic"),local("Montserrat-ExtraBolditalic"),url(/static/montserrat-latin-800italic-540ffdd223d1a9ad3d4e678e1a23372e.woff2) format("woff2"),url(/static/montserrat-latin-800italic-897086f99f4e1f45e6b1e9368527d0bc.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:900;src:local("Montserrat Black "),local("Montserrat-Black"),url(/static/montserrat-latin-900-58cd789700850375b834e8b6776002eb.woff2) format("woff2"),url(/static/montserrat-latin-900-26d42c9428780e545a540bbb50c84bce.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:900;src:local("Montserrat Black italic"),local("Montserrat-Blackitalic"),url(/static/montserrat-latin-900italic-451157bc8861fe54f523b3669a3def71.woff2) format("woff2"),url(/static/montserrat-latin-900italic-a8ec4957e1c24f5793305763ad9845b3.woff) format("woff")}@font-face{font-family:Merriweather;font-style:normal;font-display:swap;font-weight:300;src:local("Merriweather Light "),local("Merriweather-Light"),url(/static/merriweather-latin-300-b1158cfcd4aacb9d8fb61625e37af46a.woff2) format("woff2"),url(/static/merriweather-latin-300-cc7de05e166e90320d7d896e0f72a19d.woff) format("woff")}@font-face{font-family:Merriweather;font-style:italic;font-display:swap;font-weight:300;src:local("Merriweather Light italic"),local("Merriweather-Lightitalic"),url(/static/merriweather-latin-300italic-8fe52a48089d6ebe46db0b8e7cc66263.woff2) format("woff2"),url(/static/merriweather-latin-300italic-e1331f5397c2a673f9d3765138debdb5.woff) format("woff")}@font-face{font-family:Merriweather;font-style:normal;font-display:swap;font-weight:400;src:local("Merriweather Regular "),local("Merriweather-Regular"),url(/static/merriweather-latin-400-8276fdb72ae8f4714d4e6eba704cc39f.woff2) format("woff2"),url(/static/merriweather-latin-400-69f09800f4f6479d06e44eba837df872.woff) format("woff")}@font-face{font-family:Merriweather;font-style:italic;font-display:swap;font-weight:400;src:local("Merriweather Regular italic"),local("Merriweather-Regularitalic"),url(/static/merriweather-latin-400italic-3a9be9ea9f7aa4af6de7307df21d9fc0.woff2) format("woff2"),url(/static/merriweather-latin-400italic-d76079ed7541a433a54f79316de086e9.woff) format("woff")}@font-face{font-family:Merriweather;font-style:normal;font-display:swap;font-weight:700;src:local("Merriweather Bold "),local("Merriweather-Bold"),url(/static/merriweather-latin-700-fa534be7ffa380e39a7f6e03bf9a5e03.woff2) format("woff2"),url(/static/merriweather-latin-700-ba56ea84b8084b7ff9677f50d3cd81bd.woff) format("woff")}@font-face{font-family:Merriweather;font-style:italic;font-display:swap;font-weight:700;src:local("Merriweather Bold italic"),local("Merriweather-Bolditalic"),url(/static/merriweather-latin-700italic-1ef5edaaa20ae53ea50399884c5e48c6.woff2) format("woff2"),url(/static/merriweather-latin-700italic-534bc9e7ce93c73d73426e46acd78092.woff) format("woff")}@font-face{font-family:Merriweather;font-style:normal;font-display:swap;font-weight:900;src:local("Merriweather Black "),local("Merriweather-Black"),url(/static/merriweather-latin-900-7528fb70e8a4a82c7305e72ff43ac25f.woff2) format("woff2"),url(/static/merriweather-latin-900-3799b6e2f5ed3fcccf9d7a708d7419fa.woff) format("woff")}@font-face{font-family:Merriweather;font-style:italic;font-display:swap;font-weight:900;src:local("Merriweather Black italic"),local("Merriweather-Blackitalic"),url(/static/merriweather-latin-900italic-e1b4d2aaa78e12ad84aaf8a56321e4c2.woff2) format("woff2"),url(/static/merriweather-latin-900italic-2ae22f731b3424e8dbb4b37f7ca6e708.woff) format("woff")}code[class*=language-],pre[class*=language-]{color:#657b83;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{background:#073642}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:#fdf6e3}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#93a1a1}.token.punctuation{color:#586e75}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#268bd2}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string,.token.url{color:#2aa198}.token.entity{color:#657b83;background:#eee8d5}.token.atrule,.token.attr-value,.token.keyword{color:#859900}.token.class-name,.token.function{color:#b58900}.token.important,.token.regex,.token.variable{color:#cb4b16}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.tags{margin-bottom:10px}.tags .tag{background:#f8f8f8;box-shadow:none;padding:4px 7px;margin-right:10px}.gatsby-highlight[data-language]{position:relative}.gatsby-highlight[data-language] pre{background:#f4f4f9;padding-top:1.5em}.gatsby-highlight[data-language]:before{background:#d9d7e0;color:#444;border-radius:0 0 4px 4px;font-size:10px;line-height:1;padding:4px 7px;position:absolute;text-align:right;text-transform:uppercase;top:0;left:1em;content:attr(data-language)}.gatsby-highlight[data-language=javascript]:before{background:#f7df1e none repeat scroll 0 0}</style><meta name="generator" content="Gatsby 2.18.7"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><style type="text/css">.gatsby-resp-image-image{width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;color:transparent;}</style><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-176302969-1', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><link rel="alternate" type="application/rss+xml" title="backtracking.dev RSS Feed" href="/rss.xml"/><title data-react-helmet="true">Salesforce Connector for Confluent Platform | Backtracking Dev</title><link data-react-helmet="true" rel="icon" type="image/png" sizes="24x24" href="/opensource_24.png"/><link data-react-helmet="true" rel="icon" type="image/png" sizes="32x32" href="/opensource_32.png"/><meta data-react-helmet="true" name="description" content="Salesforce Connector for Confluent Platform(Kafka)"/><meta data-react-helmet="true" property="og:title" content="Salesforce Connector for Confluent Platform"/><meta data-react-helmet="true" property="og:description" content="Salesforce Connector for Confluent Platform(Kafka)"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" property="og:url" content="https://backtracking.dev/confluent-salesforce-connector/"/><meta data-react-helmet="true" property="og:image" content="https://backtracking.dev/featured-images/apache-kafka.png"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="@PariksheetB"/><meta data-react-helmet="true" name="twitter:title" content="Salesforce Connector for Confluent Platform"/><meta data-react-helmet="true" name="twitter:description" content="Salesforce Connector for Confluent Platform(Kafka)"/><meta data-react-helmet="true" name="twitter:image" content="https://backtracking.dev/featured-images/apache-kafka.png"/><link as="script" rel="preload" href="/webpack-runtime-2c7cf114e72f8be8c654.js"/><link as="script" rel="preload" href="/app-58c38faf7e2e99e839fb.js"/><link as="script" rel="preload" href="/styles-05ec49f1e97fde7879c1.js"/><link as="script" rel="preload" href="/commons-b9db83118e7f66f55c18.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-b10f2a3014285766b4ab.js"/><link as="fetch" rel="preload" href="/page-data/confluent-salesforce-connector/page-data.json" crossorigin="anonymous"/></head><body><noscript id="gatsby-noscript">This app works best with JavaScript enabled.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div style="margin-left:auto;margin-right:auto;max-width:42rem;padding:2.625rem 1.3125rem"><header><h3 style="font-family:Montserrat, sans-serif;margin-top:0"><a style="box-shadow:none;text-decoration:none;color:inherit" href="/">Backtracking Dev</a></h3><script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ac9346d1-4404-418a-b759-8d4121912bbf" data-blockingmode="auto" type="text/javascript"></script></header><main><article><header><h1 style="margin-top:1.75rem;margin-bottom:0">Salesforce Connector for Confluent Platform</h1><p style="font-size:0.83255rem;line-height:1.75rem;display:block;margin-bottom:1.75rem">August 24, 2020</p></header><div class="tags"><a class="tag" href="/tags/kafka">kafka</a><a class="tag" href="/tags/salesforce">salesforce</a><a class="tag" href="/tags/confluent">confluent</a><a class="tag" href="/tags/kafka-connect">kafka-connect</a></div><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;margin-bottom:20px"><div style="width:100%;padding-bottom:100%"></div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsSAAALEgHS3X78AAABaUlEQVQ4y9VTPc/BYBT1n/gbRtIuZTDqYDE0hnaoj0haIdLWoEEYahQJA4kf0EWkEZIuIpFYSKpUte97XgbEJAZ57/Q8T+6595xz7xP4+SAC3wb7vv+Nzq7r6rp+Pp/R/3K5vAeu1WrxeLxSqeDsed574FarlUgkVFXt9Xq5XO5wOByPR8uy9tc4nU7b7Xa1Wt2oede4efQHns/noVBI0zSCIGKxGEooijKdTqHFMIzFYlEsFvP5/HA4RPKjroDjOOl0ejAYRKPRUqnUaDTQjef5yWQym82azeZ4PE4mkxAly/Jyuez3++12e7fbPYEjkYgoiiCP2uFwmKbpQqEAMJBIqFarwWBQkqRyucyy7Gg0eqLd7XZJkqQoCrUFQchkMujPcRzDMDAFnG/lstlsKpXqdDq2bd8Nq9frUAttMAyWWNcwTRNXsMM44RwAm81mvV7DPOTcRwU+j6N63bnXl4+X5J9+jO+AfwEnkj22tMsBBQAAAABJRU5ErkJggg==" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/f2801a2555451906d4e0ced138039b0f/59beb/apache-kafka.png 200w,
+/static/f2801a2555451906d4e0ced138039b0f/c0bbd/apache-kafka.png 400w,
+/static/f2801a2555451906d4e0ced138039b0f/a54c6/apache-kafka.png 800w,
+/static/f2801a2555451906d4e0ced138039b0f/9911c/apache-kafka.png 1200w" sizes="(max-width: 800px) 100vw, 800px" /><img loading="lazy" sizes="(max-width: 800px) 100vw, 800px" srcset="/static/f2801a2555451906d4e0ced138039b0f/59beb/apache-kafka.png 200w,
+/static/f2801a2555451906d4e0ced138039b0f/c0bbd/apache-kafka.png 400w,
+/static/f2801a2555451906d4e0ced138039b0f/a54c6/apache-kafka.png 800w,
+/static/f2801a2555451906d4e0ced138039b0f/9911c/apache-kafka.png 1200w" src="/static/f2801a2555451906d4e0ced138039b0f/a54c6/apache-kafka.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><section><p>Recently, I have been trying to develop quick proof of concept using salesforce-kafka connector provided by confluent.</p>
+<p>Although documentation available at confluent is comprehensive, it still lacks a bit of information. Hence, I thought of sharing this blog with a working example.</p>
+<p>In this blog post, we will synchronize the object from one salesforce org to another org using salesforce-kafka connector.</p>
+<p>The below diagram depicts the scenario and components required to complete the poc.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/657c8532bad08e94589cc7bbb263e330/20362/sf-kafka-sync.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 44.9868073878628%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAAB50lEQVQoz22RTW/TQBCG8///AAcuqOIEJ+CCuFRCqKgtaeI4drz58OfaiR17N42d5svpwzal5dKRRrs7O/PMaN7O8XhA1Rq9eUA19+hGoc1brRWlLmnblhd7uj/Fdf3PG5NXr861y5XiYFidpErxwi5T5xOT2TVeMGESjfFmHjfONQu9eAWmlUSkgnEwZmxyRr5gFtlMhp/53f2GLDM6YRGR5FOq4JKq8JnnBVVV4rouru8wX2WvwKSKcWZDhBAorVjkOdo0LP1L/OiGRBlgXEbYUwtXeNjCwfZs7GBAL77jLu6yWP2fMNMZf8Jb+nEPS/YZGO8lpjZzz7FUpXSkThmEV3hRHz+eGfCQvttnHApc6ZyTXixeRoykiwg8LM/CEhbhPGCU9gz45hkYZTEi7JuPsYF1mQS22UWKXCZEeUizbV6B683axCLSpTT/kjiPGXm3Zt93jCIHvdZ06npDu7lnZ9SqqwVbo/Rb9vhG7HR6pDZCtKbp/mHL8djS2e12FPkcfzpBGzFWaokql2zkd9LBezLngnT4gcL7iLQviAcXlKN3lNKiLApUkRFHEbkRaL/fPwObpqEsK3NuOOx35+7bykbLn1TJL6bWF2aDryTiB0pesU4vaXclj6eTqalRSlHXtZnwyF+qSpmFpbSL+QAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="sf kafka sync"
+        title="sf kafka sync"
+        src="/static/657c8532bad08e94589cc7bbb263e330/799d3/sf-kafka-sync.png"
+        srcset="/static/657c8532bad08e94589cc7bbb263e330/00d96/sf-kafka-sync.png 148w,
+/static/657c8532bad08e94589cc7bbb263e330/0b23c/sf-kafka-sync.png 295w,
+/static/657c8532bad08e94589cc7bbb263e330/799d3/sf-kafka-sync.png 590w,
+/static/657c8532bad08e94589cc7bbb263e330/20362/sf-kafka-sync.png 758w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<ul>
+<li>We need two salesforce org logins. The user will insert/update objects in org A and kafka-connect will synchronize it in org B.</li>
+<li>There are already many inbuilt objects available in Salesforce; we can create the custom objects as well. We will use <strong>Leads</strong> object in this poc.</li>
+<li>We need to create PushTopic using SOQL in org A. With this setup, client can subscribe to PushTopic and any changes made to Leads object will be notified to client.</li>
+<li>Clients have to authenticate themselves before accessing the salesforce objects. Connected App generates necessary credentials like a secret key, access key using which clients will authenticate.</li>
+<li>Kafka connect source connector will subscribe to PushTopic and authenticate itself using credentials generated by the connected app. Once it receives the message, it will publish the event message in Avro format to Kafka topic.</li>
+<li>Kafka connect sink connector consumes the messages from the same Kafka topic and perform the upsert on Leads object in org B.</li>
+<li>Sink connector will require authentication credentials as well; hence, we need to create the Connected App in org B.</li>
+</ul>
+<h2>Initial Setup</h2>
+<p>Let’s do some initial setup and installation before we run actual poc.</p>
+<h3>Salesforce Org A</h3>
+<ul>
+<li>Create a new org with Developer/Unlimited/Enterprise edition. Don’t create org with Professional edition as you cannot deploy custom apex code on the professional edition.</li>
+<li>Verify your account</li>
+<li>Check your email inbox. In case you don’t find an email with your security token, click on profile picture -> settings -> My Personal Information -> Reset My Security Token.</li>
+<li>You will receive the security token in your email. Note down the security token.</li>
+<li>Click on Set up icon <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 306px;">
+      <a class="gatsby-resp-image-link" href="/static/c9e3edb7cfa5a238c203cb8c2acf7adf/3dc04/setup-icon.png" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 30.718954248366014%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAABC0lEQVQY04VRTUuEUBT1L7qZ/1C/wE1LaTFDuwLbFQwIQbNJGCKL2jg8UEz60KStNEio8XRGTE++azpTBB24vHvuO/fc9yE1TYMeIhdR1zVFv9fXO96u3/pVwfGRpT/6JZGUZUkGf2F7oECvc9wnTM9vMZszXN4sukGtlAwty4JhGEOTbdvE8zwn7nkeFEVBlmXE16sCJ2fXGO0eYLQzwd54ijTtTkqGURTBNE0qVFUFTdOgqiqCIKCaruuQZRmu6xIvco6j0zkWzgui5Tv2D2d4W8YbwyRJhgkCYRiCMUbmAnEcw/d9cM43t7j3MTm+wLiNqzsH9WenlX5/yn9vuM0fn1/BnIdhsNj7Al57vTrRi9bkAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="setup" title="setup" src="/static/c9e3edb7cfa5a238c203cb8c2acf7adf/3dc04/setup-icon.png" srcset="/static/c9e3edb7cfa5a238c203cb8c2acf7adf/00d96/setup-icon.png 148w,
+/static/c9e3edb7cfa5a238c203cb8c2acf7adf/0b23c/setup-icon.png 295w,
+/static/c9e3edb7cfa5a238c203cb8c2acf7adf/3dc04/setup-icon.png 306w" sizes="(max-width: 306px) 100vw, 306px" loading="lazy">
+  </a>
+    </span> on top right.</li>
+<li>Search “App” in “Search Setup” textbox and click on “App Manager”.</li>
+<li>Enter the required fields and select “Enable OAuth Settings”.</li>
+<li>Select “Enable for Device Flow” and then select All OAuth Scopes and Click on “next/save”.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/19acf4621331fda8b152bcd1c632c3f4/19f87/connected-app.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 45.298165137614674%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABjklEQVQoz4WRS2vCQBSF/f//QTe60IUvcCG6EEQQRMHGqvVZazUFyWvSxCQT4+ncq2JtC71wuJDJfJxzJuUID2/bPZ60CTRtjOeXV+i2RBhG8I+P8vzwX6VwHd/3YRgGTEvgwzgiCgMFDRFFodoB63Q64XxOkCSJ2mf8NSk6uClQro6uC3v3Dlu4EELAcRxYlgXTNBEEFyhJypgBBL/rfHFIMMcRMEwLn+4njp6HSEp2SJd/Dn2L45ghvxzegJ7nq54CBMqhud1isVpB3+/5p73amqZhOp1iPB6j0+mg1+thOBxis9nw+VbdORwOl8gPIyMkKmpMPV2jtFotZDIZZLNZVi6XQz6fR7lcZvhgMEC328VkMvnWIQGoExVT2jYDExXNVP21222USiVUKhXepFqthnq9zqB+v89aLBb3V747lDjZFgOpJxoCptNpFAoFVKtVFItFFjlsNBpoNpucYjQaIUUvZ6rHsCyb5dgCrgggFewG1HWdu5vP51ipbskJ7eVyyXu9XmM2m2G32+EL0eWdgEUDY4wAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="API"
+        title="API"
+        src="/static/19acf4621331fda8b152bcd1c632c3f4/799d3/connected-app.png"
+        srcset="/static/19acf4621331fda8b152bcd1c632c3f4/00d96/connected-app.png 148w,
+/static/19acf4621331fda8b152bcd1c632c3f4/0b23c/connected-app.png 295w,
+/static/19acf4621331fda8b152bcd1c632c3f4/799d3/connected-app.png 590w,
+/static/19acf4621331fda8b152bcd1c632c3f4/2a3d6/connected-app.png 885w,
+/static/19acf4621331fda8b152bcd1c632c3f4/ae92f/connected-app.png 1180w,
+/static/19acf4621331fda8b152bcd1c632c3f4/19f87/connected-app.png 1744w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        loading="lazy"
+      />
+  </a>
+    </span></li>
+<li>Note down “secret key” and “access key”.</li>
+</ul>
+<p> Let’s create PushTopic for Leads Object</p>
+<ul>
+<li>Go to Setup -> Developer Console.</li>
+<li>Open Apex Code Editor. On mac, use CMD+E shortcut.</li>
+<li>
+<p>Execute below code</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token class-name">PushTopic</span> pushTopic <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PushTopic</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+pushTopic<span class="token punctuation">.</span><span class="token class-name">Name</span> <span class="token operator">=</span> <span class="token string">'LeadsPushTopic'</span><span class="token punctuation">;</span>
+pushTopic<span class="token punctuation">.</span><span class="token class-name">Query</span> <span class="token operator">=</span> <span class="token string">'SELECT Id, Name, FirstName, LastName, Company FROM Lead'</span><span class="token punctuation">;</span>
+pushTopic<span class="token punctuation">.</span><span class="token class-name">ApiVersion</span> <span class="token operator">=</span> <span class="token number">49.0</span><span class="token punctuation">;</span>
+pushTopic<span class="token punctuation">.</span><span class="token class-name">NotifyForOperationCreate</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+pushTopic<span class="token punctuation">.</span><span class="token class-name">NotifyForOperationUpdate</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+pushTopic<span class="token punctuation">.</span><span class="token class-name">NotifyForOperationUndelete</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+pushTopic<span class="token punctuation">.</span><span class="token class-name">NotifyForOperationDelete</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+pushTopic<span class="token punctuation">.</span><span class="token class-name">NotifyForFields</span> <span class="token operator">=</span> <span class="token string">'Referenced'</span><span class="token punctuation">;</span>
+insert pushTopic<span class="token punctuation">;</span></code></pre></div>
+</li>
+<li>You can choose any number of fields you want, but make sure you select all mandatory fields.</li>
+<li>For Leads object, mandatory fields are - Id, LastName, and Company.</li>
+</ul>
+<p>We are done with set up of org A. Lets move to org B.</p>
+<h3>Salesforce Org B</h3>
+<ul>
+<li>Follow the same steps as above except you don’t have to create PushTopic in org B</li>
+<li>Note: You can use the same email, specify a different username while creating a salesforce account.</li>
+</ul>
+<h3>Confluent Platform</h3>
+<ul>
+<li>
+<p>Download the confluent tar</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function">wget</span> https://packages.confluent.io/archive/5.5/confluent-5.5.0-2.12.tar.gz</code></pre></div>
+</li>
+<li>Make sure Java8 or Java11 is installed on your machine, and JAVA_HOME is set.</li>
+<li>
+<p>Unarchive the confluent tar file and update the $PATH to include “confluent5.5/bin”</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function">cat</span> ~/.bash_profile
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">CONFLUENT_HOME</span><span class="token operator">=</span><span class="token operator">&lt;</span>path-to-confluent<span class="token operator">></span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token string">"<span class="token variable">${CONFLUENT_HOME}</span>/bin:<span class="token environment constant">$PATH</span>"</span></code></pre></div>
+</li>
+<li>
+<p>Install the confluent salesforce connector.</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">confluent-hub <span class="token function">install</span> confluentinc/kafka-connect-salesforce:1.5.9</code></pre></div>
+</li>
+<li>Note: Don’t use version 1.6.4, which is broken. I have already raised the defect with the confluent team.</li>
+<li>
+<p>Start the confluent platform services.</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">confluent <span class="token builtin class-name">local</span> start</code></pre></div>
+</li>
+</ul>
+<h2>Proof of Concept</h2>
+<h3><em>Source Connector</em></h3>
+<h4><strong>Config file</strong></h4>
+<p>Create below config file (salesforce-pushtopic-lead-source-config.json)
+and replace credentials that you saved previously.</p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+     <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"lead-pushtopic"</span><span class="token punctuation">,</span>
+     <span class="token property">"config"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+         <span class="token property">"connector.class"</span> <span class="token operator">:</span> <span class="token string">"io.confluent.salesforce.SalesforcePushTopicSourceConnector"</span><span class="token punctuation">,</span>
+         <span class="token property">"tasks.max"</span> <span class="token operator">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
+         <span class="token property">"kafka.topic"</span> <span class="token operator">:</span> <span class="token string">"sfdc-pushtopic-leads"</span><span class="token punctuation">,</span>
+         <span class="token property">"salesforce.object"</span> <span class="token operator">:</span> <span class="token string">"Lead"</span><span class="token punctuation">,</span>
+         <span class="token property">"salesforce.push.topic.name"</span> <span class="token operator">:</span> <span class="token string">"LeadsPushTopic"</span><span class="token punctuation">,</span>
+         <span class="token property">"salesforce.username"</span> <span class="token operator">:</span> <span class="token string">"&lt;org_A_username>"</span><span class="token punctuation">,</span>
+         <span class="token property">"salesforce.password"</span> <span class="token operator">:</span> <span class="token string">"&lt;password>"</span><span class="token punctuation">,</span>
+         <span class="token property">"salesforce.password.token"</span> <span class="token operator">:</span> <span class="token string">"&lt;security_token>"</span><span class="token punctuation">,</span>
+         <span class="token property">"salesforce.consumer.key"</span> <span class="token operator">:</span> <span class="token string">"&lt;connected_app_consumer_key>"</span><span class="token punctuation">,</span>
+         <span class="token property">"salesforce.consumer.secret"</span> <span class="token operator">:</span> <span class="token string">"&lt;connected_app_secret_key>"</span><span class="token punctuation">,</span>
+         <span class="token property">"salesforce.initial.start"</span> <span class="token operator">:</span> <span class="token string">"all"</span><span class="token punctuation">,</span>
+	     <span class="token property">"salesforce.instance"</span><span class="token operator">:</span> <span class="token string">"https://login.salesforce.com"</span><span class="token punctuation">,</span>
+         <span class="token property">"confluent.topic.bootstrap.servers"</span><span class="token operator">:</span> <span class="token string">"localhost:9092"</span><span class="token punctuation">,</span>
+         <span class="token property">"confluent.topic.replication.factor"</span><span class="token operator">:</span> <span class="token string">"1"</span>
+     <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span></code></pre></div>
+<h4><strong>Fork the source connector</strong></h4>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">confluent <span class="token builtin class-name">local</span> load lead-pushtopic -- -d salesforce-pushtopic-lead-source-config.json</code></pre></div>
+<h4><strong>Kafka connect logs</strong></h4>
+<p>You can check the connect logs using below command.</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">confluent <span class="token builtin class-name">local</span> log connect -- -f</code></pre></div>
+<h4><strong>Salesforce console</strong></h4>
+<ul>
+<li>Login to Salesforce org A</li>
+<li>Open Leads Item from home page <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;">
+      <a class="gatsby-resp-image-link" href="/static/254e0ed48aed14ea5aa05e1077691f3b/581a4/leads-app.png" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 74.10714285714286%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAABYlAAAWJQFJUiTwAAACDUlEQVQ4y6WT2W7TQBSG/Wi8CeIGWhYh8QB9iSJEoaJSH4K7Fqk7oSylUOQ2m7PZyUwcL2M7cWx/jB2g3JGWI/3SmZl//jnLHIMip92sk0QhKvC036BrtcjnKaWF/gQxtEliVa2dQQ8phniuRI4cxtovMs3NM7SDEUwzal++Yzluhd3DD+zXzhiMFcEMGr0RZ2aLZl8wiXM+XzT4dFHnR7PHV7Ot0dLcEHsSMVYpxp21txyakq13de6u7/Fs+5Qnb2o8eHnA/Rd7rL464uHrEx5tHrO6ccDjzROebtX03jErG0fVemXjUOOAe8/3MNa290nmBf3JjI5M6LlTLBHTGSd0Nco9S16vK/8XKl7ll2dTGgMPw+xIRJjhBQrHcbiq16taFfzbfnOmScLHs29IraMFRVUr/RjDINORThnqg9JfCiXXT2kOI9xQ17Dl+FVXd3Z26Q8G1Yt5XpAXN8Ei0iybY7QdjzDwabfbRFHEfD6nKJZJ+O/cF/zyrtEdBXgTl063i2VZnJ+fV8ILXrE0/gja+r9JMeLy8qpqyvWjxY1ES4uTGYbwYi1kY5omPR3l/1iW5xhD6eNKSbPRRAhBpCJUGN4YsS6T1PcN4Yb0OhantffY/a7+U/GtBCOlR9X3McYTRazn2dYT0pcKT01vnfIsTRcRqijGFj6jcUCgYt2tlDRdHrNZWnU4DBU/AVFRbu/yL7v/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="leads" title="leads" src="/static/254e0ed48aed14ea5aa05e1077691f3b/799d3/leads-app.png" srcset="/static/254e0ed48aed14ea5aa05e1077691f3b/00d96/leads-app.png 148w,
+/static/254e0ed48aed14ea5aa05e1077691f3b/0b23c/leads-app.png 295w,
+/static/254e0ed48aed14ea5aa05e1077691f3b/799d3/leads-app.png 590w,
+/static/254e0ed48aed14ea5aa05e1077691f3b/581a4/leads-app.png 672w" sizes="(max-width: 590px) 100vw, 590px" loading="lazy">
+  </a>
+    </span></li>
+<li>Add one entry into Leads</li>
+</ul>
+<h4><strong>Validate the source connector</strong></h4>
+<ul>
+<li>Once you add new records in Leads object, you should see data in kafka topic in avro format.</li>
+<li>
+<p>Use kafka-avro-consumer to see message.</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">kafka-avro-console-consumer --bootstrap-server localhost:9092 --from-beginning --topic sfdc-pushtopic-leads</code></pre></div>
+</li>
+<li>
+<p>Record should look like something below with additional fields of Lead object.</p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+<span class="token property">"Id"</span><span class="token operator">:</span> <span class="token string">"00Q3V000002o9aiUAA"</span><span class="token punctuation">,</span>
+<span class="token property">"LastName"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+	<span class="token property">"string"</span><span class="token operator">:</span> <span class="token string">"Barapatre"</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token property">"FirstName"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+	<span class="token property">"string"</span><span class="token operator">:</span> <span class="token string">"Pari"</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token property">"Salutation"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+<span class="token property">"Name"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+	<span class="token property">"string"</span><span class="token operator">:</span> <span class="token string">"Pari Barapatre"</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token property">"Company"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+	<span class="token property">"string"</span><span class="token operator">:</span> <span class="token string">"XYZ"</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token property">"_ObjectType"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+	<span class="token property">"string"</span><span class="token operator">:</span> <span class="token string">"Lead"</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token property">"_EventType"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+	<span class="token property">"string"</span><span class="token operator">:</span> <span class="token string">"created"</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+</li>
+<li>If you don’t any see record populated in kafka-topic, check the kafka-connect logs.</li>
+</ul>
+<h3><em>Sink Connector</em></h3>
+<h4><strong>Config file</strong></h4>
+<p>Create a config file (salesforce-sobject-leads-sink-config.properties)
+and replace credentials that you saved previously.</p>
+<p> Here we are using “properties” file instead of json. You can use json file as well. Confluent supports both json and properties file.</p>
+<div class="gatsby-highlight" data-language="properties"><pre class="language-properties"><code class="language-properties"><span class="token attr-name">name</span><span class="token punctuation">=</span><span class="token attr-value">sink-leads</span>
+<span class="token attr-name">connector.class</span><span class="token punctuation">=</span><span class="token attr-value">io.confluent.salesforce.SalesforceSObjectSinkConnector</span>
+<span class="token attr-name">tasks.max</span><span class="token punctuation">=</span><span class="token attr-value">1</span>
+<span class="token attr-name">topics</span><span class="token punctuation">=</span><span class="token attr-value">sfdc-pushtopic-leads</span>
+<span class="token attr-name">salesforce.object</span><span class="token punctuation">=</span><span class="token attr-value">Lead</span>
+<span class="token attr-name">"salesforce.username"</span> <span class="token punctuation">:</span> <span class="token attr-value">"&lt;org_A_username>",</span>
+<span class="token attr-name">"salesforce.password"</span> <span class="token punctuation">:</span> <span class="token attr-value">"&lt;password>",</span>
+<span class="token attr-name">"salesforce.password.token"</span> <span class="token punctuation">:</span> <span class="token attr-value">"&lt;security_token>",</span>
+<span class="token attr-name">"salesforce.consumer.key"</span> <span class="token punctuation">:</span> <span class="token attr-value">"&lt;connected_app_consumer_key>",</span>
+<span class="token attr-name">"salesforce.consumer.secret"</span> <span class="token punctuation">:</span> <span class="token attr-value">"&lt;connected_app_secret_key>",</span>
+<span class="token attr-name">salesforce.ignore.fields</span><span class="token punctuation">=</span><span class="token attr-value">CleanStatus</span>
+<span class="token attr-name">salesforce.ignore.reference.fields</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+<span class="token attr-name">salesforce.custom.id.field.name</span><span class="token punctuation">=</span><span class="token attr-value">CustomId__c</span>
+<span class="token attr-name">salesforce.use.custom.id.field</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+<span class="token attr-name">salesforce.sink.object.operation</span><span class="token punctuation">=</span><span class="token attr-value">upsert</span>
+<span class="token attr-name">override.event.type</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+<span class="token attr-name">confluent.topic.bootstrap.servers</span><span class="token punctuation">=</span><span class="token attr-value">localhost:9092</span>
+<span class="token attr-name">confluent.topic.replication.factor</span><span class="token punctuation">=</span><span class="token attr-value">1</span></code></pre></div>
+<p>There are three major differences in sink config from source config.</p>
+<ul>
+<li>We don’t need salesforce.push.topic.name in sink config</li>
+<li>salesforce.custom.id.field.name property required for kafka connect to identify the record.
+Id field is maintained by salesforce and cannot be overriden. Hence, we need extra custom field which will be set by kafka-connect as OrgA<em>Lead</em>Id field before upserting record to OrgB_Lead object. </li>
+<li>salesforce.sink.object.operation property specifies the operation we intended to perform.</li>
+</ul>
+<h4><strong>Salesforce console</strong></h4>
+<p>As mentioned above, we now have to create a custom field in Leads object of org B.</p>
+<ul>
+<li>Log in to org B salesforce console.</li>
+<li>Go to Set Up -> Object Manager -> Lead -> Fields &#x26; Relationship -> New</li>
+<li>Select ‘text’ field -> Next -> Name the field, Set it as “External Field” and Next->Next->Save</li>
+</ul>
+<span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;">
+      <a class="gatsby-resp-image-link" href="/static/f0dd41ca91ebc2ad85aaff3800924b3b/da2b8/custom_field.png" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 71.54471544715447%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB+klEQVQ4y51T2ZLaMBD0//8XtZWEGwy2AxhfGN+HbDBnRzMbudiEl8RVXZJHUqt7ZqSdz2eUZYU8L1CXJdJjjCCMcIwSFFUjIVCUAlXd4HQ6/QU6/wqt6zqkaQbXC5AeQmyXBoZzE7phIy7OSCRoTAuBkzxwvV57XC4XJiEOBY0CtHC/33F/3CHaBo2oUVUFyiJHkWc8ZlkqkUknOZIkYdR1zSRfFCrCQKpLwyMWoym+jXUYGw9ry8F8tYVu7mFaWxyCAL4fwHVdOI4jnaW9yi+W4zjBz62NyHFh/hhhqlvY7Dy2mZUNj5RHOny73Xr8SdYrDIIDtrs9YqkwCUiBg/AQoG2k/UagbQUXrhafhWnblvGuSEzYyMVGHhYSnbyVvufz+ZlXiZvEQ81fFL6DRrKLooTn+TLRKYQQEg1f8D/gHJJUIiEymj8eD75NKfwXaKqPSKkif02y+n+XL7WmckroLe9kUchyVVWwbRv7/Z5bw/M8bhP6p7jv+zynOIHmZFUJ0lRjEuHxGMnmzWFZFtbrNWM+n8MwDJimyY3c/i7gqyrlrH8pr5YvnbQnNxHZcDjEcrnEbDbDYrHAdDrFYDDAZDLhtdFoxPj4+EAYhvwcWWEUxVK6y8/su91hY7tY6UsmI+LVasUqdV3HeDxmcopTjC6hfWSfuH4BqRMkAu+/vysAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="CustomId" title="CustomId" src="/static/f0dd41ca91ebc2ad85aaff3800924b3b/799d3/custom_field.png" srcset="/static/f0dd41ca91ebc2ad85aaff3800924b3b/00d96/custom_field.png 148w,
+/static/f0dd41ca91ebc2ad85aaff3800924b3b/0b23c/custom_field.png 295w,
+/static/f0dd41ca91ebc2ad85aaff3800924b3b/799d3/custom_field.png 590w,
+/static/f0dd41ca91ebc2ad85aaff3800924b3b/2a3d6/custom_field.png 885w,
+/static/f0dd41ca91ebc2ad85aaff3800924b3b/da2b8/custom_field.png 984w" sizes="(max-width: 590px) 100vw, 590px" loading="lazy">
+  </a>
+    </span>
+<h4><strong>Fork the sink connector</strong></h4>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">confluent <span class="token builtin class-name">local</span> load lead-sink -- -d salesforce-sobject-leads-sink-config.properties</code></pre></div>
+<h4><strong>Kafka connect logs</strong></h4>
+<p>You can check the connect logs using the below command.</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">confluent <span class="token builtin class-name">local</span> log connect -- -f</code></pre></div>
+<h4><strong>Validate the sink connector</strong></h4>
+<ul>
+<li>Login to Salesforce org B</li>
+<li>Open Leads Item from home page <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;">
+      <a class="gatsby-resp-image-link" href="/static/254e0ed48aed14ea5aa05e1077691f3b/581a4/leads-app.png" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 74.10714285714286%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAABYlAAAWJQFJUiTwAAACDUlEQVQ4y6WT2W7TQBSG/Wi8CeIGWhYh8QB9iSJEoaJSH4K7Fqk7oSylUOQ2m7PZyUwcL2M7cWx/jB2g3JGWI/3SmZl//jnLHIMip92sk0QhKvC036BrtcjnKaWF/gQxtEliVa2dQQ8phniuRI4cxtovMs3NM7SDEUwzal++Yzluhd3DD+zXzhiMFcEMGr0RZ2aLZl8wiXM+XzT4dFHnR7PHV7Ot0dLcEHsSMVYpxp21txyakq13de6u7/Fs+5Qnb2o8eHnA/Rd7rL464uHrEx5tHrO6ccDjzROebtX03jErG0fVemXjUOOAe8/3MNa290nmBf3JjI5M6LlTLBHTGSd0Nco9S16vK/8XKl7ll2dTGgMPw+xIRJjhBQrHcbiq16taFfzbfnOmScLHs29IraMFRVUr/RjDINORThnqg9JfCiXXT2kOI9xQ17Dl+FVXd3Z26Q8G1Yt5XpAXN8Ei0iybY7QdjzDwabfbRFHEfD6nKJZJ+O/cF/zyrtEdBXgTl063i2VZnJ+fV8ILXrE0/gja+r9JMeLy8qpqyvWjxY1ES4uTGYbwYi1kY5omPR3l/1iW5xhD6eNKSbPRRAhBpCJUGN4YsS6T1PcN4Yb0OhantffY/a7+U/GtBCOlR9X3McYTRazn2dYT0pcKT01vnfIsTRcRqijGFj6jcUCgYt2tlDRdHrNZWnU4DBU/AVFRbu/yL7v/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="leads" title="leads" src="/static/254e0ed48aed14ea5aa05e1077691f3b/799d3/leads-app.png" srcset="/static/254e0ed48aed14ea5aa05e1077691f3b/00d96/leads-app.png 148w,
+/static/254e0ed48aed14ea5aa05e1077691f3b/0b23c/leads-app.png 295w,
+/static/254e0ed48aed14ea5aa05e1077691f3b/799d3/leads-app.png 590w,
+/static/254e0ed48aed14ea5aa05e1077691f3b/581a4/leads-app.png 672w" sizes="(max-width: 590px) 100vw, 590px" loading="lazy">
+  </a>
+    </span></li>
+<li>You should see one entry from org A</li>
+<li>Edit/Add a record in org A, and it should appear in org B in blink of an eye.</li>
+</ul>
+<h2>Clean up</h2>
+<p>Run below command to stop all services and delete data.</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">confluent <span class="token builtin class-name">local</span> destroy</code></pre></div></section><hr style="margin-bottom:1.75rem"/><footer><div style="display:flex;margin-bottom:4.375rem"><a style="min-width:50px;min-height:50px;margin-right:0.875rem;margin-bottom:0;overflow:hidden;box-shadow:none" href="/author/pari"><img alt="Pariksheet Barapatre" style="width:50px;height:auto;border-radius:100%" src="/pari.jpg"/></a><p><strong>Pariksheet Barapatre</strong> <!-- --> is a professional data engineer; loves distributed systems and sql. He also maintains https://xpatris.com for expats in Belgium<!-- -->.<br/><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/PariksheetB">@<!-- -->PariksheetB</a></p></div></footer></article><nav><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li></li><li><a rel="next" href="/working-with-cassandra/">Working with cassandra at scale<!-- --> →</a></li></ul></nav><div id="disqus_thread"></div></main></div></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/confluent-salesforce-connector/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-58c38faf7e2e99e839fb.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-b10f2a3014285766b4ab.js"],"component---src-templates-tag-js":["/component---src-templates-tag-js-4c6d0acf187afb07fe01.js"],"component---src-templates-author-js":["/component---src-templates-author-js-a61200afc35cc97c7008.js"],"component---src-pages-404-js":["/component---src-pages-404-js-31a64aa4d0648eac1c8c.js"],"component---src-pages-index-js":["/component---src-pages-index-js-243a263376f386d41bfe.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-b10f2a3014285766b4ab.js" async=""></script><script src="/commons-b9db83118e7f66f55c18.js" async=""></script><script src="/styles-05ec49f1e97fde7879c1.js" async=""></script><script src="/app-58c38faf7e2e99e839fb.js" async=""></script><script src="/webpack-runtime-2c7cf114e72f8be8c654.js" async=""></script></body><script>
+            const ts = Date.now().toString();
+            const sendTelemetry = () => {
+              // avoid localhost hits
+              if (window.location.href.includes("localhost")) return;
+              // Analytics
+              let query = "v=1";
+              query += "&tid=UA-176302969-1"; // tracking ID
+              query += "&cid=" + ts; // client ID -> faking as timestamp
+              if (document.referrer) query += "&dr="+ encodeURIComponent(document.referrer);
+              query += "&ds=web"; // event from
+              query += "&aip=1"; //anonymize IP
+              query += "&z=" + ts; //to avoid caching of data
+              query += "&ul=" + navigator.language;
+              query += "&ua=" + encodeURIComponent(navigator.userAgent);
+              query += "&dl=" + encodeURIComponent(document.location.origin + document.location.pathname);
+              // query += "&dh=" + encodeURIComponent(document.location.origin);
+              // query += "&dp=" + encodeURIComponent(document.location.pathname);
+              query += "&t=pageview"; //event type
+              const request = new XMLHttpRequest();
+              request.open("POST", "https://www.google-analytics.com/collect", true);
+              request.send(query);
+            };
+
+            // Send for the current page
+            sendTelemetry();
+            // hook pushState function to call sendTelemetry everytime something is pushed in history
+            (function(history){
+              var pushState = history.pushState;
+              history.pushState = function(state) {
+                sendTelemetry();
+                return pushState.apply(history, arguments);
+              };
+            })(window.history);
+          </script></html>

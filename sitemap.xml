@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://backtracking.dev/gatsby-blog-github-hosting-ci-cd/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/terraform-aws-elasticsearch/aws-elasticsearch/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/working-with-cassandra/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/confluent-salesforce-connector/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/tags/gatsby</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/tags/ci/cd</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/tags/continuous deployment</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/tags/blog hosting</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/tags/experiece</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/tags/aws</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/tags/terraform</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/tags/elasticsearch</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/tags/cognito</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/tags/nginx</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/tags/cassandra</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/tags/performance</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/tags/nosql</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/tags/kubernetes</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/tags/kafka</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/tags/salesforce</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/tags/confluent</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/tags/kafka-connect</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/author/abhi</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/author/pari</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://backtracking.dev/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+</urlset>

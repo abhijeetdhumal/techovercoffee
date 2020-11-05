@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[backtracking.dev RSS Feed]]></title><description><![CDATA[We write about the cloud and data technologies, indepth and in detail analysis with examples]]></description><link>https://backtracking.dev</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 05 Nov 2020 18:21:48 GMT</lastBuildDate><item><title><![CDATA[Lightning fast personal Blog with github hosting and continuous deployment]]></title><description><![CDATA[Starting your blog is a tough job, you have to come up with unique name for the blog, think about the blog hosting and a setup. Most of the…]]></description><link>https://backtracking.dev/gatsby-blog-github-hosting-ci-cd/</link><guid isPermaLink="false">https://backtracking.dev/gatsby-blog-github-hosting-ci-cd/</guid><pubDate>Sun, 25 Oct 2020 17:00:03 GMT</pubDate><content:encoded>&lt;p&gt;Starting your blog is a tough job, you have to come up with unique name for the blog, think about the blog hosting and a setup. Most of the people will give up until this point and either leave the blogging idea or start writing on medium/linkedin platforms. The same thing has happened with me.&lt;/p&gt;
+&lt;p&gt;So when we thought of starting our blog we obviously came up with the simple idea of starting it on Medium or Linkedin. But as an engineer instead of using third party platform we thought why not to host our own blog. We stumbled upon various platforms like WordPress, tumbler etc, but along with our own hosting we also wanted a clean blog website like Medium and a super fast performance as we will mostly be loading static content.&lt;/p&gt;
+&lt;p&gt;And then we found the solution that fitted exactly what we were looking for. That’s the &lt;strong&gt;&lt;a href=&quot;https://www.gatsbyjs.com/&quot;&gt;Gatsby&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Gatsby is a ReactJS based opensource javascript framework with performance, scalability and security built in.&lt;/p&gt;
+&lt;p&gt;Gatsby allows you to write in Markdown language, that is easy to learn and write. If you have previously written Github documentation you would be aware with Markdown. Gatsby picks these markdown files and coverts them in to static html pages, which are used to serve blog. Gatsby is capable of doing much more, but here we will be talking about creating a blog website using Gatsby.&lt;/p&gt;
+&lt;p&gt;While working as a Software Engineer, Backend engineer and Data engineer it was very rare occasion to touch the front end stuff, that was one more reason to host our own blog and that too with Gatsby.&lt;/p&gt;
+&lt;p&gt;In this blog post I am writing  my learnings about setting up a gatsby blog, hosting it on a Github for free as a github pages. And then apply CI/CD to build and deploy your new blog posts.&lt;/p&gt;
+&lt;p&gt;So lets start with setting up a blog using Gastby.&lt;/p&gt;
+&lt;h3&gt;Environment Setup&lt;/h3&gt;
+&lt;p&gt;To start setting up Gatsby, we will need to install node and npm. You can find installation steps &lt;a href=&quot;https://docs.npmjs.com/downloading-and-installing-node-js-and-npm&quot;&gt;here.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Then you need to install a gatsby-cli:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# npm install -g gatsby-cli&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now, you can create a new blog using existing gatsby templates&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# create a
+$ gatsby new blog https://github.com/gatsbyjs/gatsby-starter-blog
+
+# change the working directory
+cd blog
+
+# start the development server
+$ gatsby develop&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Thats it, now you have your blog setup as a local development environment. Open up a new tab in your browser and navigate to &lt;a href=&quot;http://localhost:8000&quot;&gt;http://localhost:8000&lt;/a&gt;/&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e62ac5abefbbb8dbda69fe8174e5a83c/401cd/gatsby_starter_default.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 64.19836956521738%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAACK0lEQVQ4y5WR22sTQRSH9714SVuraSS0hFSlrVbFgvSyag01WcVi0lowYAWLPhSlCPbJbqhiEIngi1Dw8gcIaqugkBchJqRvBm9pSEoQtGiyGzdxs9nZnTnuZmnw0jbxB9/OnBnON8Ms1bZlu33/znZf3z56+vABerq7s5s1N7awm+q2sqYNZnZz3Ta2fqOZbTRZ/qGp3sJaGlo0bNesTfabzQ2tR6iD1hOnhzomYKh9Atxdl2C07zIc3zsOg51jMNgxBsd2n4Oju84CbTsDh2zeCno9YPcCs+M8ONsugGfPFehvHblHjQ/cOuXzPAGf+6ns9z5H96+G0MOpMHow9QbNTr7WxhC6ezGIZjxz6MbI/B9cH55HM8NzGs8k/+hLmHTN3qZCoZAbYwyEEJzPF0j84yJ5/+4DyXznSElCRCrKRC4hoijKqqiKqo8KaEkkEgEqEom4wQhRVIXkfvDAcRwUCnl9CWpMWbi0lApQ4XC4IlRVlSCEQAUMoihBIVc0NgipRlmYTP4l1MGaUPiyDG9fxSEe/WpsYKNxrawIU6lVhJKQh/CjF7DweAHkEqnccL2sIzQ6P0U+w3KKKy9iXF26lhDrf1ouYfItLZCSiMoH1BhkvGEyQEWjUc/vpwmCArKMQVXhf4L1TzqdvkMFg8GTmUxGzeVyRZ7nJZ7npGw2q6HPa+anKIoQi8X8FE3TJoZhelwuV68B06vVGit1dZxOZ4/W0+9wOKy/ABG/KFnHSNfoAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;gatsby_starter_default.png&quot;
+        title=&quot;gatsby_starter_default.png&quot;
+        src=&quot;/static/e62ac5abefbbb8dbda69fe8174e5a83c/799d3/gatsby_starter_default.png&quot;
+        srcset=&quot;/static/e62ac5abefbbb8dbda69fe8174e5a83c/00d96/gatsby_starter_default.png 148w,
+/static/e62ac5abefbbb8dbda69fe8174e5a83c/0b23c/gatsby_starter_default.png 295w,
+/static/e62ac5abefbbb8dbda69fe8174e5a83c/799d3/gatsby_starter_default.png 590w,
+/static/e62ac5abefbbb8dbda69fe8174e5a83c/2a3d6/gatsby_starter_default.png 885w,
+/static/e62ac5abefbbb8dbda69fe8174e5a83c/ae92f/gatsby_starter_default.png 1180w,
+/static/e62ac5abefbbb8dbda69fe8174e5a83c/401cd/gatsby_starter_default.png 2944w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Create a blog post&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Create a folder “first&lt;em&gt;post” under the content -&gt; blog. And then create a markdown file “first&lt;/em&gt;post.md”&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;├── content
+    ├── blog
+        ├── first_post.md&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now you need to add the content to the “first_post.md” file.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;---
+path: /blog/first-post
+date: 2020-10-25
+summary: This is my first post summary
+tags: [my, first, post]
+title: Hello World!!! This is my first gatsby post
+---
+The first blog post using gatsby. Gatsby is so awesome.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You need to add the “front-matter” at the start of your post. In the above example it is marked between dashes. This is the metadata about the post is being written,  like post date, summary and tags.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;path&lt;/strong&gt; parameter of the front-matter is the most important. This will be the part of the url for the blogpost, so it needs to be unique. Gatsby reads this path and creates new page from it.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Add your personal info:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Open gatsby-config.js and edit personal details like author name, siteUrl, blog title etc.
+You can change the profile by copying file under &lt;em&gt;content/assets/&lt;/em&gt; and  rename it to &lt;em&gt;profile-pic.png.&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;Github Pages&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Before deploying our blog to github pages, lets go through how the github pages works.&lt;/em&gt;
+&lt;em&gt;&lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt; is a service provided by github where you can setup your static websites directly from github repos.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Github allows two types of static websites, one that is associate with github accounts and another project site i.e a site associated with repository. We need to create a project site in our case.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Github pages looks for the content under&lt;/em&gt; &lt;strong&gt;&lt;em&gt;gh-pages&lt;/em&gt;&lt;/strong&gt; &lt;em&gt;branch to launch the website.&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;Deploy to Github Pages:&lt;/h3&gt;
+&lt;p&gt;Make sure that you have a git client installed.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ git remote add  origin https://github.com/&amp;lt;github-username&amp;gt;/&amp;lt;repo-name&amp;gt;.git
+
+# check remote
+$ git remote -v
+
+# it will look like this
+&amp;gt; origin  https://github.com/username/repo.git (fetch)
+&amp;gt; origin  https://github.com/username/repo.git (push)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We will use &lt;strong&gt;dev&lt;/strong&gt; branch for a local development and the &lt;strong&gt;“gh-pages”&lt;/strong&gt; branch will be used to deploy static pages.&lt;/p&gt;
+&lt;p&gt;Now install the gh-pages plugin to integrate gatsby site with GitHub pages.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm install gh-pages&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now add the github repository name to your &lt;em&gt;gatsby-config.js.&lt;/em&gt; &lt;strong&gt;&lt;em&gt;Lets assum that your github repo is gatsby-project&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;module.exports = {
+pathPrefix: &amp;quot;/gatsby_project&amp;quot;,
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Next, add a custom command deploy to your package.json file.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;{
+  &amp;quot;scripts&amp;quot;: {
+    &amp;quot;deploy&amp;quot;: &amp;quot;gatsby build --prefix-paths &amp;amp;&amp;amp; gh-pages -d public&amp;quot;
+  }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This creates a deploy command which creates a static version of your site with prefix “gatsby-project”. Then pushes the static  pages under generated public directory using gh-pages plugin.&lt;/p&gt;
+&lt;p&gt;Now, run the following script to build the blog website and push it to GitHub.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm run deploy&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will publish the static content of your blog to the branch gh-pages.&lt;/p&gt;
+&lt;h3&gt;Activate Github pages:&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to your repository on &lt;a href=&quot;http://github.com&quot; rev=&quot;en_rl_none&quot;&gt;github.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Visit settings tab&lt;/li&gt;
+&lt;li&gt;Search for “Github Pages”&lt;/li&gt;
+&lt;li&gt;Select the branch “gh-pages”&lt;/li&gt;
+&lt;li&gt;Now your blog site will be available under:username.github.com/gatsby_project&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Now you can view your published content on:
+username.github.io/gatsby_project&lt;/p&gt;
+&lt;h3&gt;Use a custom sub-domain:&lt;/h3&gt;
+&lt;p&gt;You can associate your custom domain with your github pages repo. You just need to follow two simple steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Configure github pages to use a custom domain:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to the repository settings as followed in above step.&lt;/li&gt;
+&lt;li&gt;Under the github pages section, you can add the custom domain name.&lt;/li&gt;
+&lt;li&gt;Alternatively, you can add a CNAME file to the root of the repo with custom domain name mentioned in it.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Update DNS of your domain to point to Github pages:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;You need to create a CNAME record which will point your domain to the github pages url.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You can find the &lt;a href=&quot;https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site&quot;&gt;detailed instructions&lt;/a&gt; to link your gh pages with your domain.&lt;/p&gt;
+&lt;h3&gt;Continuous deployment with Github Actions:&lt;/h3&gt;
+&lt;p&gt;Using Github actions you can automate your blog publishing.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;“GitHub Actions is your workflow: built by you, run by us.” — &lt;a href=&quot;https://github.blog/2018-10-16-future-of-software/&quot;&gt;The GitHub Blog&lt;/a&gt;&lt;/em&gt;
+We are going to use Gatsby Publish plugin for deployment automation.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Add the action to workflows yaml file:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a  .github/workflows directory under your repo&lt;/li&gt;
+&lt;li&gt;add your action to a YAML file under the workflows directory&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;name: Gatsby Publish
+
+on:
+push:
+branches: [ master ]
+
+jobs:
+build:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v2
+- name: Gatsby Publish
+uses: enriikke/gatsby-gh-pages-action@v2.1.1
+with:
+	access-token: ${{ secrets.ACCESS_TOKEN }}
+	deploy-branch: gh-pages
+	gatsby-args: --prefix-paths&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;Give access to workflow:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You need to give access to your repository to the workflow.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to Github settings&lt;/li&gt;
+&lt;li&gt;Secrets&lt;/li&gt;
+&lt;li&gt;Set &lt;b&gt;&lt;span style=&quot;color:rgb(41, 41, 41);&quot;&gt;ACCESS_TOKEN &lt;/b&gt;&lt;span style=&quot;color:rgb(41, 41, 41);&quot;&gt;environment variable to a personal github token&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/490a75824b95c6007b3973408752de85/3fc71/github_secrets.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 37.85714285714286%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsSAAALEgHS3X78AAAAwElEQVQY05WQjQ7CIAyEff83dQZl/BQKbfE2t2TOROMXQprS4+AuYwwzK6WqGurWeghBd0S6dCyRpZLWWowJ/bFyeYmdu+dMqGvl63Vyzk23G/YQ4kLKRJWoUCnMPHY2sfczDMwGbo0UQ44YYjyjd7ilXLgJJtHqzJg/OTtMomk74wBuNCwzPF5F38T42TyH9XScZN/ZnB/ep5T0w/O3GCCMYxJ/iEUVySCSTJyIKy85gTWyrUZkkbjUXliR7Ev8BIC81+nD3z9nAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;github_secrets.png&quot;
+        title=&quot;github_secrets.png&quot;
+        src=&quot;/static/490a75824b95c6007b3973408752de85/799d3/github_secrets.png&quot;
+        srcset=&quot;/static/490a75824b95c6007b3973408752de85/00d96/github_secrets.png 148w,
+/static/490a75824b95c6007b3973408752de85/0b23c/github_secrets.png 295w,
+/static/490a75824b95c6007b3973408752de85/799d3/github_secrets.png 590w,
+/static/490a75824b95c6007b3973408752de85/2a3d6/github_secrets.png 885w,
+/static/490a75824b95c6007b3973408752de85/ae92f/github_secrets.png 1180w,
+/static/490a75824b95c6007b3973408752de85/3fc71/github_secrets.png 1400w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;With all this setup done, you are ready to trigger your first build by merging to the master branch of the repo.&lt;/p&gt;
+&lt;p&gt;To summarize, here we created a blazingly fast website using a Gatsby, published it to Github pages, linked the github pages to your custom domain and then used continuous deployment to automate publishing of new blog article after merging with a master.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Terraform script for Amazon Elasticsearch Service with Cognito authentication]]></title><description><![CDATA[Amazon elasticsearch service is a popular choice for many aws clients for log analytics and visualization use cases. One common scenario is…]]></description><link>https://backtracking.dev/terraform-aws-elasticsearch/aws-elasticsearch/</link><guid isPermaLink="false">https://backtracking.dev/terraform-aws-elasticsearch/aws-elasticsearch/</guid><pubDate>Thu, 24 Sep 2020 05:12:01 GMT</pubDate><content:encoded>&lt;p&gt;Amazon elasticsearch service is a popular choice for many aws clients for log analytics and visualization use cases. One common scenario is to have elasticsearch (indexing engine) only accessible within vpc and kibana (visualization engine) to be available over the internet through an authentication mechanism. &lt;/p&gt;
+&lt;p&gt;Amazon elasticsearch service is a combo of elasticsearch and kibana, and we cannot spawn two components separately. However, the aws team provided the hack to achieve the desired setup using Nginx and Cognito authentication.&lt;/p&gt;
+&lt;p&gt;Detailed documentation available at &lt;a href=&quot;https://aws.amazon.com/premiumsupport/knowledge-center/kibana-outside-vpc-nginx-elasticsearch/&quot;&gt;aws&lt;/a&gt;. I referred the same documentation when I first launched the elasticsearch service, but it is quite a lengthy process to get it running. Hence, I thought of creating a Terraform IaC script, handy, and prod ready for deployment. &lt;/p&gt;
+&lt;p&gt;We can also use AWS CloudFormation to create an IaC script, but I like the terraform simplicity and philosophy.&lt;/p&gt;
+&lt;p&gt;Below diagram shows the components and communication between each other.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/bf2f8d9711c3117524186be307a37915/9dd9c/aws-elasticsearch.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.643678160919535%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsSAAALEgHS3X78AAACaElEQVQ4y21TSWsUURCeH+fNmzf/ggjqxYsXFxQN4gJeRLyJCCISGCQSEnBBoxKJWWQms2QyMz1L9/T09rrf0t3zWa+SiRmxHx/Vb/teVX1VFdDnpxN4yRgqVwR5DHUCfWylUQvr/6KclahYwtX9d9jsfre/mNFgO5udoChL3sHxCT5Fl0tat9YiL3MmrdgL9uuHXXxqryOSAXnsIdUCmREQOqHdEr1AYq0xQShzeEIj0URA62zzkh9mQuumRS84xHpjBU2vhn3vNwZRD8O4D4dsXkqaK6zUxqi5AvWpQK2V4f2LEAduhkAa9pIJrXc2RzN6LdYhQu3Dz1z40oUrhhgnA6hCchSRmWGUaExNia+bLdy/sYzmIFwkdByHCDXCJMDewTZ+7GzgytVLePX2JSbZGIdeG0LGtJ/iV6tHqcnw+ecOHj99huW1Vdx99AT9ScgPWjEr1WoVBY1IhHx5u7GFi5cv4E31NXvZHOwjTiPEIsNux8EgVvi4uU2EzyncELeWHqA79o8IDREWRUE5MtCF5hCnykPTqXOoXjpC1+9QuaSs7SjNmdCiMZyg40UYChIpkaz8qRxqdncUOwxLPLeHbguiUDDtDqY3byO4cw+D3TraQUpCZSRmSjnMiW8uCj1tvbOEc2XZEkaJg67XQphn8L98Q+fMWfTOnUfjwwYOhEGfyLoB7aWGS+uvh0Row45kiFidAs1tXRb2uDvB1rXr2Ft6CEE5E1TricrpXLFYh5ZQmowr3S7O6/I0bJ5tr2iCmfdLWZx0CXdKYY5UtpuGJ0c9+19QBNYaLWFISWUU530Rilq0wB8s2tSc3WwEAAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;aws elasticsearch&quot;
+        title=&quot;aws elasticsearch&quot;
+        src=&quot;/static/bf2f8d9711c3117524186be307a37915/799d3/aws-elasticsearch.png&quot;
+        srcset=&quot;/static/bf2f8d9711c3117524186be307a37915/00d96/aws-elasticsearch.png 148w,
+/static/bf2f8d9711c3117524186be307a37915/0b23c/aws-elasticsearch.png 295w,
+/static/bf2f8d9711c3117524186be307a37915/799d3/aws-elasticsearch.png 590w,
+/static/bf2f8d9711c3117524186be307a37915/9dd9c/aws-elasticsearch.png 696w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;vpc and subnets to restrict the access of components&lt;/li&gt;
+&lt;li&gt;elasticsearch service to be created within a private subnet&lt;/li&gt;
+&lt;li&gt;cognito service(user pool and identity pool) which is used by elasticsearch service for authentication&lt;/li&gt;
+&lt;li&gt;nginx instance will be placed in public subnet, which will act as a proxy for kibana access.&lt;/li&gt;
+&lt;li&gt;security groups - kibana is only accessible through nginx over 443 port, and nginx public dns will be accessible over internet from port 443.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Terraform code is available at &lt;a href=&quot;https://github.com/pariksheet/terraform-aws-elasticsearch&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Terraform quick code walkthrough:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;project structure&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;commons&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;confiugure_nginx.sh &lt;/p&gt;
+&lt;p&gt; An userdata script which installs and configures the nginx server. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;nginx.conf&lt;/p&gt;
+&lt;p&gt; Nginx configuration file referred by nginx script. &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;main&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;main.tf&lt;/p&gt;
+&lt;p&gt; Launcher terraform script. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;vars.tf&lt;/p&gt;
+&lt;p&gt; List of variables referred in the terraform main script. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;terraform.tfvars&lt;/p&gt;
+&lt;p&gt; Variable values to be passed to terraform main script. &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;modules&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;elasticsearch&lt;/p&gt;
+&lt;p&gt; Module consists of three sub modules. &lt;/p&gt;
+- cognito
+    &lt;p&gt; Create user pool and indentity pool. &lt;/p&gt;
+- elasticsearch_domain
+    &lt;p&gt; Create elasticsearch domain with cognito authentication. &lt;/p&gt;
+- nginx
+    &lt;p&gt; Launch nginx instance and configure it to access kibana. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;vpc&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;vpc_base&lt;/p&gt;
+&lt;p&gt; Create vpc, subnets, route tables and internet gatway. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;vpc_sg&lt;/p&gt;
+&lt;p&gt; Create security groups and ingress/egress rules. &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;input variables&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;terraformvariable &quot;aws_region&quot; &quot;&gt;&lt;pre class=&quot;language-terraformvariable &quot;aws_region&quot; &quot;&gt;&lt;code class=&quot;language-terraformvariable &quot;aws_region&quot; &quot;&gt;variable &amp;quot;PREFIX&amp;quot; { description = &amp;quot;Typically project name&amp;quot; }
+variable &amp;quot;ENV&amp;quot; { description = &amp;quot;Environment Name&amp;quot; }
+variable &amp;quot;SUBNET&amp;quot; { description = &amp;quot;VPC CIDR : 10.{var.SUBNET}.0.0/22&amp;quot;}
+variable &amp;quot;INSTANCE_KEY_PATH&amp;quot; { description = &amp;quot;path of instance pem file&amp;quot; }
+variable &amp;quot;NGINX_INSTANCE&amp;quot; { description = &amp;quot;instance type of nginx&amp;quot;}
+variable &amp;quot;ES_INSTANCE&amp;quot; { description = &amp;quot;instance type of elasticsearch&amp;quot;}
+variable &amp;quot;ES_VOLUME_GB&amp;quot; { description = &amp;quot;instance volume(gb) of elasticsearch&amp;quot;}
+variable &amp;quot;ES_ENCRYPTION&amp;quot; { description = &amp;quot;true/false&amp;quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;output variables&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;terraform&quot;&gt;&lt;pre class=&quot;language-terraform&quot;&gt;&lt;code class=&quot;language-terraform&quot;&gt;elasticsearch = {
+&amp;quot;es_arn&amp;quot; = &amp;quot;arn:aws:es:eu-west-1:856753410642:domain/blog-dev-elastic-search&amp;quot;
+&amp;quot;es_endpoint&amp;quot; = &amp;quot;vpc-blog-dev-elastic-search-wpeo7jzj3s76bgr3porui5e3x4.eu-west-1.es.amazonaws.com&amp;quot;
+&amp;quot;kibana_public_url&amp;quot; = &amp;quot;https://ec2-54-74-236-213.eu-west-1.compute.amazonaws.com&amp;quot;
+&amp;quot;kibana_vpc_url&amp;quot; = &amp;quot;https://vpc-blog-dev-elastic-search-wpeo7jzj3s76bgr3porui5e3x4.eu-west-1.es.amazonaws.com/_plugin/kibana/&amp;quot;
+&amp;quot;user_pool&amp;quot; = &amp;quot;BLOG_DEV_USER_POOL&amp;quot;
+}
+nginx = {
+&amp;quot;private_ip&amp;quot; = &amp;quot;10.33.0.142&amp;quot;
+&amp;quot;public_ip&amp;quot; = &amp;quot;54.74.236.213&amp;quot;
+&amp;quot;ssh_cmd&amp;quot; = &amp;quot;ssh -i ./keypair/nginx-instance ec2-user@i-08fc027f1db5542fc&amp;quot;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;execution of script&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;terraform apply&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This blog post did not cover terraform basics on how to write each component. There are good materials available over web. I have created a bootcamp for terraform noobs, here is the &lt;a href=&quot;https://github.com/pariksheet/terraform-bootcamp&quot;&gt;github&lt;/a&gt; link.&lt;/p&gt;
+&lt;p&gt;Feel free to ask any specific question over comment section.&lt;/p&gt;
+&lt;p&gt;Cheers. Happy Coding…!!!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Working with cassandra at scale]]></title><description><![CDATA[While working with cassandra we experimented a lot to analyse the performance of the cassandra on kubernetes cluster.  Here are the some…]]></description><link>https://backtracking.dev/working-with-cassandra/</link><guid isPermaLink="false">https://backtracking.dev/working-with-cassandra/</guid><pubDate>Sun, 06 Sep 2020 17:00:03 GMT</pubDate><content:encoded>&lt;p&gt;While working with cassandra we experimented a lot to analyse the performance of the cassandra on kubernetes cluster. &lt;/p&gt;
+&lt;p&gt;Here are the some learnings from the extensive testing.&lt;/p&gt;
+&lt;h3&gt;Write (Bulk)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[k8s] Concurrency: 200; Num CPU’s Client: 2; # Records: 116547279&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Time taken to Insert in C* 2h54m26.765794644s&lt;/li&gt;
+&lt;li&gt;Total Record Counts: 173801976&lt;/li&gt;
+&lt;li&gt;Error Counts: 0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[k8s] Concurrency: 1000; Num CPU’s Client: 16; # Records: 116547186&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Time taken to Insert in C* 1h56m43.787323892s&lt;/li&gt;
+&lt;li&gt;Total Record Counts: 173801976&lt;/li&gt;
+&lt;li&gt;Error Counts: 11449&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Using spark to import data directly from s3&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Number of nodes in cassandra cluster: 8 x i3.xlarge&lt;/li&gt;
+&lt;li&gt;Replication factor: 2&lt;/li&gt;
+&lt;li&gt;Number of nodes in emr cluster: 10 x m3.xlarge&lt;/li&gt;
+&lt;li&gt;Number of records: 4.820.489.450 (all snippets)&lt;/li&gt;
+&lt;li&gt;Time taken: 24 hours&lt;/li&gt;
+&lt;li&gt;Number of writes per core per second: 1743&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Inference&lt;/strong&gt;: Client scales linearly with the number of available cores. We need to make sure that we are not keeping the concurrency too high. Also in the second case the number of available cpu’s with the client is 16 this is greater than the number of cpus with all cassandra nodes (4 x 3 = 12)&lt;/p&gt;
+&lt;h3&gt;Read (Bulk)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Test setup 1&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Number of nodes in cassandra cluster: 6 x i3.xlarge&lt;/li&gt;
+&lt;li&gt;Number of client nodes: 2 x m3.xlarge&lt;/li&gt;
+&lt;li&gt;Number of queries: ~21M&lt;/li&gt;
+&lt;li&gt;Time taken: ~7000 sec&lt;/li&gt;
+&lt;li&gt;Number of reads per cassandra core per second: 125&lt;/li&gt;
+&lt;li&gt;Number of reads per client core per second: 375&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Test: Does commit log placement affect write performance?&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Test setup: cassandra cluster running on 3 x i3.xlarge&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Number of client writer nodes: 10 x m3.xlarge&lt;/li&gt;
+&lt;li&gt;Number of rows to insert: ~46M&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Commit log placements tested:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ephemeral drive, same as where data is stored&lt;/li&gt;
+&lt;li&gt;Root SSD drive&lt;/li&gt;
+&lt;li&gt;Separate EBS (HDD Standard)&lt;/li&gt;
+&lt;li&gt;Separate EBS (SSD GP2)
+Time taken in each test: 12 minutes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Failure Testing&lt;/h3&gt;
+&lt;h3&gt;Case 1: Purge all the pods but instances with data persists&lt;/h3&gt;
+&lt;p&gt;On restarting we need to make sure that we remove all files in the path: /var/lib/cassandra/data/system/*&lt;/p&gt;
+&lt;p&gt;If not done the last cluster state causes the second pod to enter a crash loop backoff and it causes problems for cluster to start.&lt;/p&gt;
+&lt;p&gt;Performing this operation still has no impact on data. Remember we are only deleting data in the system keyspace, the rest of the keyspace data is still kept intact.&lt;/p&gt;
+&lt;p&gt;Note: This should only be done when the entire cluster was purged and previous data still persists.&lt;/p&gt;
+&lt;h3&gt;Case 2: Delete a cluster pod; Instance and data persists.&lt;/h3&gt;
+&lt;p&gt;This case has two scenarios:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Deleted pod is a seed node.&lt;/li&gt;
+&lt;li&gt;Deleted pod is a non-seed node.
+In both the cases deleting the pod has no affect in availability of data from cluster. We can delete the pod and on the same instance the same pod starts (stateful-set construct at work in k8s) and it starts up properly connecting back to the ring in the cluster.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Case 3: Scale up the cluster&lt;/h3&gt;
+&lt;p&gt;Generally, if you start some new nodes with proper configuration values (mainly seeds and cluster_name), they should eventually join the cluster and then receive their portion of data from other nodes. This process is called bootstrapping.&lt;/p&gt;
+&lt;p&gt;However, if two or more nodes try to bootstrap at the same time, one might fail to proceed until the other one has finished his job. In logs, you might find corresponding exceptions:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Exception (java.lang.UnsupportedOperationException) encountered during startup:
+Other bootstrapping/leaving/moving nodes detected, cannot bootstrap while cassandra.consistent.rangemovement is true&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;But as said, this is not critical issue: cassandra will retry bootstrapping over and over again until succeeded.
+More details discussed in depth in &lt;a href=&quot;http://thelastpickle.com/blog/2017/05/23/auto-bootstrapping-part1.html&quot;&gt;this article&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Case 4: Remove or downscale the cluster nodes&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Run nodetool drain &amp;#x26;&amp;#x26; nodetool stopdaemon on node planned for removal&lt;/li&gt;
+&lt;li&gt;Run nodetool status on any other node in the cluster. Make sure that the victim node is marked as DN&lt;/li&gt;
+&lt;li&gt;Run nodetool removenode &lt;GUID&gt; with victim’s GUID. This command will take some time.&lt;/li&gt;
+&lt;li&gt;To remove all nodes that are down, run the same stuff in a loop, like:
+for node in &lt;code class=&quot;language-text&quot;&gt;nodetool status | grep ^DN | awk {&amp;#39;print $7&amp;#39;}&lt;/code&gt;; do nodetool removenode $node; done&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Case 5: Replacing dead node&lt;/h3&gt;
+&lt;p&gt;Can be achieved by:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;removing dead node as described in Case 6&lt;/li&gt;
+&lt;li&gt;starting a new node as described in Case 5
+However, there is more efficient way possible to add &lt;a href=&quot;http://thelastpickle.com/blog/2017/05/23/auto-bootstrapping-part1.html#adding-a-replacement-node&quot;&gt;a replacement node&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;Case 6: What happens when disk becomes full&lt;/h3&gt;
+&lt;p&gt;This section explains what kinds of issues might arise when the disk where cassandra data folder resides, becomes full.&lt;/p&gt;
+&lt;p&gt;The main thing we should know is that cassandra does not consider this case as critical, so if node is unable to do a planned background compaction, it won’t just do it. As far as there is enough space in commitlog pool, all data writes will still be stored in commitlog. However, commitlog maximum size is controlled by commitlog&lt;em&gt;total&lt;/em&gt;space&lt;em&gt;in&lt;/em&gt;mb config property, and by default its set to several gigabytes. For performance reasons, its not recommended to increase this value too much. So if you keep writing new data, commitlog will also get full.&lt;/p&gt;
+&lt;p&gt;After that, all writes to this node will fail, while node will still try to stay up and running. In particular, nodetool status will still report node as UN (up normal).&lt;/p&gt;
+&lt;p&gt;Depending on cluster configuration, replication&lt;em&gt;factor property and desired consistency level, a client who is doing writes to the cluster might not notice any issue. So for example if we have more than 1 node in cluster, use replication&lt;/em&gt;factor = 2 and consistency ONE, any write request will be successful, because second replica will always successfully go to another, healthy node.&lt;/p&gt;
+&lt;p&gt;But in practice things may work differently. As of cassandra 3.11.2, such an overloaded node seems to work quite unstable, so over time service may die with following log messages:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;java.lang.OutOfMemoryError: Java heap space
+Dumping heap to java_pid2795.hprof ...
+Unable to create java_pid2795.hprof: Permission denied
+
+    java.lang.OutOfMemoryError: Java heap space
+ -XX:OnOutOfMemoryError=&amp;quot;kill -9 %p&amp;quot;
+   Executing /bin/sh -c &amp;quot;kill -9 2795&amp;quot;...
+bash: line 1:  2795 Killed                  docker-entrypoint.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;After restarting the service, while there is still no free space left on device, cassandra might behave unpredictably. For example, some subservices would start normally, and others not. But if you first free up some space and then restart it again, cassandra will start normally.
+Therefore, you need to make sure you have some smart policy for service healthcheck and restarting.&lt;/p&gt;
+&lt;h3&gt;Case 7: &lt;a href=&quot;https://opencredo.com/cassandra-tombstones-common-issues/&quot;&gt;Tombstones: common issues&lt;/a&gt;&lt;/h3&gt;</content:encoded></item><item><title><![CDATA[Salesforce Connector for Confluent Platform]]></title><description><![CDATA[Recently, I have been trying to develop quick proof of concept using salesforce-kafka connector provided by confluent. Although…]]></description><link>https://backtracking.dev/confluent-salesforce-connector/</link><guid isPermaLink="false">https://backtracking.dev/confluent-salesforce-connector/</guid><pubDate>Mon, 24 Aug 2020 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;Recently, I have been trying to develop quick proof of concept using salesforce-kafka connector provided by confluent.&lt;/p&gt;
+&lt;p&gt;Although documentation available at confluent is comprehensive, it still lacks a bit of information. Hence, I thought of sharing this blog with a working example.&lt;/p&gt;
+&lt;p&gt;In this blog post, we will synchronize the object from one salesforce org to another org using salesforce-kafka connector.&lt;/p&gt;
+&lt;p&gt;The below diagram depicts the scenario and components required to complete the poc.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/657c8532bad08e94589cc7bbb263e330/20362/sf-kafka-sync.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 44.9868073878628%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAAB50lEQVQoz22RTW/TQBCG8///AAcuqOIEJ+CCuFRCqKgtaeI4drz58OfaiR17N42d5svpwzal5dKRRrs7O/PMaN7O8XhA1Rq9eUA19+hGoc1brRWlLmnblhd7uj/Fdf3PG5NXr861y5XiYFidpErxwi5T5xOT2TVeMGESjfFmHjfONQu9eAWmlUSkgnEwZmxyRr5gFtlMhp/53f2GLDM6YRGR5FOq4JKq8JnnBVVV4rouru8wX2WvwKSKcWZDhBAorVjkOdo0LP1L/OiGRBlgXEbYUwtXeNjCwfZs7GBAL77jLu6yWP2fMNMZf8Jb+nEPS/YZGO8lpjZzz7FUpXSkThmEV3hRHz+eGfCQvttnHApc6ZyTXixeRoykiwg8LM/CEhbhPGCU9gz45hkYZTEi7JuPsYF1mQS22UWKXCZEeUizbV6B683axCLSpTT/kjiPGXm3Zt93jCIHvdZ06npDu7lnZ9SqqwVbo/Rb9vhG7HR6pDZCtKbp/mHL8djS2e12FPkcfzpBGzFWaokql2zkd9LBezLngnT4gcL7iLQviAcXlKN3lNKiLApUkRFHEbkRaL/fPwObpqEsK3NuOOx35+7bykbLn1TJL6bWF2aDryTiB0pesU4vaXclj6eTqalRSlHXtZnwyF+qSpmFpbSL+QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;sf kafka sync&quot;
+        title=&quot;sf kafka sync&quot;
+        src=&quot;/static/657c8532bad08e94589cc7bbb263e330/799d3/sf-kafka-sync.png&quot;
+        srcset=&quot;/static/657c8532bad08e94589cc7bbb263e330/00d96/sf-kafka-sync.png 148w,
+/static/657c8532bad08e94589cc7bbb263e330/0b23c/sf-kafka-sync.png 295w,
+/static/657c8532bad08e94589cc7bbb263e330/799d3/sf-kafka-sync.png 590w,
+/static/657c8532bad08e94589cc7bbb263e330/20362/sf-kafka-sync.png 758w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We need two salesforce org logins. The user will insert/update objects in org A and kafka-connect will synchronize it in org B.&lt;/li&gt;
+&lt;li&gt;There are already many inbuilt objects available in Salesforce; we can create the custom objects as well. We will use &lt;strong&gt;Leads&lt;/strong&gt; object in this poc.&lt;/li&gt;
+&lt;li&gt;We need to create PushTopic using SOQL in org A. With this setup, client can subscribe to PushTopic and any changes made to Leads object will be notified to client.&lt;/li&gt;
+&lt;li&gt;Clients have to authenticate themselves before accessing the salesforce objects. Connected App generates necessary credentials like a secret key, access key using which clients will authenticate.&lt;/li&gt;
+&lt;li&gt;Kafka connect source connector will subscribe to PushTopic and authenticate itself using credentials generated by the connected app. Once it receives the message, it will publish the event message in Avro format to Kafka topic.&lt;/li&gt;
+&lt;li&gt;Kafka connect sink connector consumes the messages from the same Kafka topic and perform the upsert on Leads object in org B.&lt;/li&gt;
+&lt;li&gt;Sink connector will require authentication credentials as well; hence, we need to create the Connected App in org B.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Initial Setup&lt;/h2&gt;
+&lt;p&gt;Let’s do some initial setup and installation before we run actual poc.&lt;/p&gt;
+&lt;h3&gt;Salesforce Org A&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a new org with Developer/Unlimited/Enterprise edition. Don’t create org with Professional edition as you cannot deploy custom apex code on the professional edition.&lt;/li&gt;
+&lt;li&gt;Verify your account&lt;/li&gt;
+&lt;li&gt;Check your email inbox. In case you don’t find an email with your security token, click on profile picture -&gt; settings -&gt; My Personal Information -&gt; Reset My Security Token.&lt;/li&gt;
+&lt;li&gt;You will receive the security token in your email. Note down the security token.&lt;/li&gt;
+&lt;li&gt;Click on Set up icon &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 306px;&quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/c9e3edb7cfa5a238c203cb8c2acf7adf/3dc04/setup-icon.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 30.718954248366014%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAABC0lEQVQY04VRTUuEUBT1L7qZ/1C/wE1LaTFDuwLbFQwIQbNJGCKL2jg8UEz60KStNEio8XRGTE++azpTBB24vHvuO/fc9yE1TYMeIhdR1zVFv9fXO96u3/pVwfGRpT/6JZGUZUkGf2F7oECvc9wnTM9vMZszXN4sukGtlAwty4JhGEOTbdvE8zwn7nkeFEVBlmXE16sCJ2fXGO0eYLQzwd54ijTtTkqGURTBNE0qVFUFTdOgqiqCIKCaruuQZRmu6xIvco6j0zkWzgui5Tv2D2d4W8YbwyRJhgkCYRiCMUbmAnEcw/d9cM43t7j3MTm+wLiNqzsH9WenlX5/yn9vuM0fn1/BnIdhsNj7Al57vTrRi9bkAAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;setup&quot; title=&quot;setup&quot; src=&quot;/static/c9e3edb7cfa5a238c203cb8c2acf7adf/3dc04/setup-icon.png&quot; srcset=&quot;/static/c9e3edb7cfa5a238c203cb8c2acf7adf/00d96/setup-icon.png 148w,
+/static/c9e3edb7cfa5a238c203cb8c2acf7adf/0b23c/setup-icon.png 295w,
+/static/c9e3edb7cfa5a238c203cb8c2acf7adf/3dc04/setup-icon.png 306w&quot; sizes=&quot;(max-width: 306px) 100vw, 306px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt; on top right.&lt;/li&gt;
+&lt;li&gt;Search “App” in “Search Setup” textbox and click on “App Manager”.&lt;/li&gt;
+&lt;li&gt;Enter the required fields and select “Enable OAuth Settings”.&lt;/li&gt;
+&lt;li&gt;Select “Enable for Device Flow” and then select All OAuth Scopes and Click on “next/save”.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/19acf4621331fda8b152bcd1c632c3f4/19f87/connected-app.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 45.298165137614674%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABjklEQVQoz4WRS2vCQBSF/f//QTe60IUvcCG6EEQQRMHGqvVZazUFyWvSxCQT4+ncq2JtC71wuJDJfJxzJuUID2/bPZ60CTRtjOeXV+i2RBhG8I+P8vzwX6VwHd/3YRgGTEvgwzgiCgMFDRFFodoB63Q64XxOkCSJ2mf8NSk6uClQro6uC3v3Dlu4EELAcRxYlgXTNBEEFyhJypgBBL/rfHFIMMcRMEwLn+4njp6HSEp2SJd/Dn2L45ghvxzegJ7nq54CBMqhud1isVpB3+/5p73amqZhOp1iPB6j0+mg1+thOBxis9nw+VbdORwOl8gPIyMkKmpMPV2jtFotZDIZZLNZVi6XQz6fR7lcZvhgMEC328VkMvnWIQGoExVT2jYDExXNVP21222USiVUKhXepFqthnq9zqB+v89aLBb3V747lDjZFgOpJxoCptNpFAoFVKtVFItFFjlsNBpoNpucYjQaIUUvZ6rHsCyb5dgCrgggFewG1HWdu5vP51ipbskJ7eVyyXu9XmM2m2G32+EL0eWdgEUDY4wAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;API&quot;
+        title=&quot;API&quot;
+        src=&quot;/static/19acf4621331fda8b152bcd1c632c3f4/799d3/connected-app.png&quot;
+        srcset=&quot;/static/19acf4621331fda8b152bcd1c632c3f4/00d96/connected-app.png 148w,
+/static/19acf4621331fda8b152bcd1c632c3f4/0b23c/connected-app.png 295w,
+/static/19acf4621331fda8b152bcd1c632c3f4/799d3/connected-app.png 590w,
+/static/19acf4621331fda8b152bcd1c632c3f4/2a3d6/connected-app.png 885w,
+/static/19acf4621331fda8b152bcd1c632c3f4/ae92f/connected-app.png 1180w,
+/static/19acf4621331fda8b152bcd1c632c3f4/19f87/connected-app.png 1744w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Note down “secret key” and “access key”.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt; Let’s create PushTopic for Leads Object&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Go to Setup -&gt; Developer Console.&lt;/li&gt;
+&lt;li&gt;Open Apex Code Editor. On mac, use CMD+E shortcut.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Execute below code&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token class-name&quot;&gt;PushTopic&lt;/span&gt; pushTopic &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;PushTopic&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+pushTopic&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;LeadsPushTopic&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+pushTopic&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Query&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;SELECT Id, Name, FirstName, LastName, Company FROM Lead&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+pushTopic&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;ApiVersion&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;49.0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+pushTopic&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;NotifyForOperationCreate&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+pushTopic&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;NotifyForOperationUpdate&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+pushTopic&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;NotifyForOperationUndelete&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+pushTopic&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;NotifyForOperationDelete&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+pushTopic&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;NotifyForFields&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Referenced&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+insert pushTopic&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;You can choose any number of fields you want, but make sure you select all mandatory fields.&lt;/li&gt;
+&lt;li&gt;For Leads object, mandatory fields are - Id, LastName, and Company.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We are done with set up of org A. Lets move to org B.&lt;/p&gt;
+&lt;h3&gt;Salesforce Org B&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Follow the same steps as above except you don’t have to create PushTopic in org B&lt;/li&gt;
+&lt;li&gt;Note: You can use the same email, specify a different username while creating a salesforce account.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Confluent Platform&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Download the confluent tar&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;wget&lt;/span&gt; https://packages.confluent.io/archive/5.5/confluent-5.5.0-2.12.tar.gz&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;Make sure Java8 or Java11 is installed on your machine, and JAVA_HOME is set.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Unarchive the confluent tar file and update the $PATH to include “confluent5.5/bin”&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;cat&lt;/span&gt; ~/.bash_profile
+&lt;span class=&quot;token builtin class-name&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;CONFLUENT_HOME&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;path-to-confluent&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;&lt;span class=&quot;token environment constant&quot;&gt;PATH&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${CONFLUENT_HOME}&lt;/span&gt;/bin:&lt;span class=&quot;token environment constant&quot;&gt;$PATH&lt;/span&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install the confluent salesforce connector.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;confluent-hub &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; confluentinc/kafka-connect-salesforce:1.5.9&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;Note: Don’t use version 1.6.4, which is broken. I have already raised the defect with the confluent team.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Start the confluent platform services.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;confluent &lt;span class=&quot;token builtin class-name&quot;&gt;local&lt;/span&gt; start&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Proof of Concept&lt;/h2&gt;
+&lt;h3&gt;&lt;em&gt;Source Connector&lt;/em&gt;&lt;/h3&gt;
+&lt;h4&gt;&lt;strong&gt;Config file&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;Create below config file (salesforce-pushtopic-lead-source-config.json)
+and replace credentials that you saved previously.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;lead-pushtopic&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+     &lt;span class=&quot;token property&quot;&gt;&quot;config&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;token property&quot;&gt;&quot;connector.class&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;io.confluent.salesforce.SalesforcePushTopicSourceConnector&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;token property&quot;&gt;&quot;tasks.max&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;token property&quot;&gt;&quot;kafka.topic&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;sfdc-pushtopic-leads&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;token property&quot;&gt;&quot;salesforce.object&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Lead&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;token property&quot;&gt;&quot;salesforce.push.topic.name&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;LeadsPushTopic&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;token property&quot;&gt;&quot;salesforce.username&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;org_A_username&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;token property&quot;&gt;&quot;salesforce.password&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;password&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;token property&quot;&gt;&quot;salesforce.password.token&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;security_token&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;token property&quot;&gt;&quot;salesforce.consumer.key&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;connected_app_consumer_key&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;token property&quot;&gt;&quot;salesforce.consumer.secret&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;connected_app_secret_key&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;token property&quot;&gt;&quot;salesforce.initial.start&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;all&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+	     &lt;span class=&quot;token property&quot;&gt;&quot;salesforce.instance&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://login.salesforce.com&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;token property&quot;&gt;&quot;confluent.topic.bootstrap.servers&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;localhost:9092&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+         &lt;span class=&quot;token property&quot;&gt;&quot;confluent.topic.replication.factor&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;1&quot;&lt;/span&gt;
+     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;&lt;strong&gt;Fork the source connector&lt;/strong&gt;&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;confluent &lt;span class=&quot;token builtin class-name&quot;&gt;local&lt;/span&gt; load lead-pushtopic -- -d salesforce-pushtopic-lead-source-config.json&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;&lt;strong&gt;Kafka connect logs&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;You can check the connect logs using below command.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;confluent &lt;span class=&quot;token builtin class-name&quot;&gt;local&lt;/span&gt; log connect -- -f&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;&lt;strong&gt;Salesforce console&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Login to Salesforce org A&lt;/li&gt;
+&lt;li&gt;Open Leads Item from home page &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/254e0ed48aed14ea5aa05e1077691f3b/581a4/leads-app.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 74.10714285714286%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAABYlAAAWJQFJUiTwAAACDUlEQVQ4y6WT2W7TQBSG/Wi8CeIGWhYh8QB9iSJEoaJSH4K7Fqk7oSylUOQ2m7PZyUwcL2M7cWx/jB2g3JGWI/3SmZl//jnLHIMip92sk0QhKvC036BrtcjnKaWF/gQxtEliVa2dQQ8phniuRI4cxtovMs3NM7SDEUwzal++Yzluhd3DD+zXzhiMFcEMGr0RZ2aLZl8wiXM+XzT4dFHnR7PHV7Ot0dLcEHsSMVYpxp21txyakq13de6u7/Fs+5Qnb2o8eHnA/Rd7rL464uHrEx5tHrO6ccDjzROebtX03jErG0fVemXjUOOAe8/3MNa290nmBf3JjI5M6LlTLBHTGSd0Nco9S16vK/8XKl7ll2dTGgMPw+xIRJjhBQrHcbiq16taFfzbfnOmScLHs29IraMFRVUr/RjDINORThnqg9JfCiXXT2kOI9xQ17Dl+FVXd3Z26Q8G1Yt5XpAXN8Ei0iybY7QdjzDwabfbRFHEfD6nKJZJ+O/cF/zyrtEdBXgTl063i2VZnJ+fV8ILXrE0/gja+r9JMeLy8qpqyvWjxY1ES4uTGYbwYi1kY5omPR3l/1iW5xhD6eNKSbPRRAhBpCJUGN4YsS6T1PcN4Yb0OhantffY/a7+U/GtBCOlR9X3McYTRazn2dYT0pcKT01vnfIsTRcRqijGFj6jcUCgYt2tlDRdHrNZWnU4DBU/AVFRbu/yL7v/AAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;leads&quot; title=&quot;leads&quot; src=&quot;/static/254e0ed48aed14ea5aa05e1077691f3b/799d3/leads-app.png&quot; srcset=&quot;/static/254e0ed48aed14ea5aa05e1077691f3b/00d96/leads-app.png 148w,
+/static/254e0ed48aed14ea5aa05e1077691f3b/0b23c/leads-app.png 295w,
+/static/254e0ed48aed14ea5aa05e1077691f3b/799d3/leads-app.png 590w,
+/static/254e0ed48aed14ea5aa05e1077691f3b/581a4/leads-app.png 672w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Add one entry into Leads&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;&lt;strong&gt;Validate the source connector&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Once you add new records in Leads object, you should see data in kafka topic in avro format.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use kafka-avro-consumer to see message.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;kafka-avro-console-consumer --bootstrap-server localhost:9092 --from-beginning --topic sfdc-pushtopic-leads&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Record should look like something below with additional fields of Lead object.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;token property&quot;&gt;&quot;Id&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;00Q3V000002o9aiUAA&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token property&quot;&gt;&quot;LastName&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token property&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Barapatre&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token property&quot;&gt;&quot;FirstName&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token property&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Pari&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token property&quot;&gt;&quot;Salutation&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token null keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token property&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token property&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Pari Barapatre&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token property&quot;&gt;&quot;Company&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token property&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;XYZ&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token property&quot;&gt;&quot;_ObjectType&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token property&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Lead&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token property&quot;&gt;&quot;_EventType&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token property&quot;&gt;&quot;string&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;created&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;If you don’t any see record populated in kafka-topic, check the kafka-connect logs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;&lt;em&gt;Sink Connector&lt;/em&gt;&lt;/h3&gt;
+&lt;h4&gt;&lt;strong&gt;Config file&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;Create a config file (salesforce-sobject-leads-sink-config.properties)
+and replace credentials that you saved previously.&lt;/p&gt;
+&lt;p&gt; Here we are using “properties” file instead of json. You can use json file as well. Confluent supports both json and properties file.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;properties&quot;&gt;&lt;pre class=&quot;language-properties&quot;&gt;&lt;code class=&quot;language-properties&quot;&gt;&lt;span class=&quot;token attr-name&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;sink-leads&lt;/span&gt;
+&lt;span class=&quot;token attr-name&quot;&gt;connector.class&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;io.confluent.salesforce.SalesforceSObjectSinkConnector&lt;/span&gt;
+&lt;span class=&quot;token attr-name&quot;&gt;tasks.max&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token attr-name&quot;&gt;topics&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;sfdc-pushtopic-leads&lt;/span&gt;
+&lt;span class=&quot;token attr-name&quot;&gt;salesforce.object&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;Lead&lt;/span&gt;
+&lt;span class=&quot;token attr-name&quot;&gt;&quot;salesforce.username&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&quot;&amp;lt;org_A_username&gt;&quot;,&lt;/span&gt;
+&lt;span class=&quot;token attr-name&quot;&gt;&quot;salesforce.password&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&quot;&amp;lt;password&gt;&quot;,&lt;/span&gt;
+&lt;span class=&quot;token attr-name&quot;&gt;&quot;salesforce.password.token&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&quot;&amp;lt;security_token&gt;&quot;,&lt;/span&gt;
+&lt;span class=&quot;token attr-name&quot;&gt;&quot;salesforce.consumer.key&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&quot;&amp;lt;connected_app_consumer_key&gt;&quot;,&lt;/span&gt;
+&lt;span class=&quot;token attr-name&quot;&gt;&quot;salesforce.consumer.secret&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&quot;&amp;lt;connected_app_secret_key&gt;&quot;,&lt;/span&gt;
+&lt;span class=&quot;token attr-name&quot;&gt;salesforce.ignore.fields&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;CleanStatus&lt;/span&gt;
+&lt;span class=&quot;token attr-name&quot;&gt;salesforce.ignore.reference.fields&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;token attr-name&quot;&gt;salesforce.custom.id.field.name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;CustomId__c&lt;/span&gt;
+&lt;span class=&quot;token attr-name&quot;&gt;salesforce.use.custom.id.field&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;token attr-name&quot;&gt;salesforce.sink.object.operation&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;upsert&lt;/span&gt;
+&lt;span class=&quot;token attr-name&quot;&gt;override.event.type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;token attr-name&quot;&gt;confluent.topic.bootstrap.servers&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;localhost:9092&lt;/span&gt;
+&lt;span class=&quot;token attr-name&quot;&gt;confluent.topic.replication.factor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;There are three major differences in sink config from source config.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We don’t need salesforce.push.topic.name in sink config&lt;/li&gt;
+&lt;li&gt;salesforce.custom.id.field.name property required for kafka connect to identify the record.
+Id field is maintained by salesforce and cannot be overriden. Hence, we need extra custom field which will be set by kafka-connect as OrgA&lt;em&gt;Lead&lt;/em&gt;Id field before upserting record to OrgB_Lead object. &lt;/li&gt;
+&lt;li&gt;salesforce.sink.object.operation property specifies the operation we intended to perform.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;&lt;strong&gt;Salesforce console&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;As mentioned above, we now have to create a custom field in Leads object of org B.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Log in to org B salesforce console.&lt;/li&gt;
+&lt;li&gt;Go to Set Up -&gt; Object Manager -&gt; Lead -&gt; Fields &amp;#x26; Relationship -&gt; New&lt;/li&gt;
+&lt;li&gt;Select ‘text’ field -&gt; Next -&gt; Name the field, Set it as “External Field” and Next-&gt;Next-&gt;Save&lt;/li&gt;
+&lt;/ul&gt;
+&lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/f0dd41ca91ebc2ad85aaff3800924b3b/da2b8/custom_field.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 71.54471544715447%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB+klEQVQ4y51T2ZLaMBD0//8XtZWEGwy2AxhfGN+HbDBnRzMbudiEl8RVXZJHUqt7ZqSdz2eUZYU8L1CXJdJjjCCMcIwSFFUjIVCUAlXd4HQ6/QU6/wqt6zqkaQbXC5AeQmyXBoZzE7phIy7OSCRoTAuBkzxwvV57XC4XJiEOBY0CtHC/33F/3CHaBo2oUVUFyiJHkWc8ZlkqkUknOZIkYdR1zSRfFCrCQKpLwyMWoym+jXUYGw9ry8F8tYVu7mFaWxyCAL4fwHVdOI4jnaW9yi+W4zjBz62NyHFh/hhhqlvY7Dy2mZUNj5RHOny73Xr8SdYrDIIDtrs9YqkwCUiBg/AQoG2k/UagbQUXrhafhWnblvGuSEzYyMVGHhYSnbyVvufz+ZlXiZvEQ81fFL6DRrKLooTn+TLRKYQQEg1f8D/gHJJUIiEymj8eD75NKfwXaKqPSKkif02y+n+XL7WmckroLe9kUchyVVWwbRv7/Z5bw/M8bhP6p7jv+zynOIHmZFUJ0lRjEuHxGMnmzWFZFtbrNWM+n8MwDJimyY3c/i7gqyrlrH8pr5YvnbQnNxHZcDjEcrnEbDbDYrHAdDrFYDDAZDLhtdFoxPj4+EAYhvwcWWEUxVK6y8/su91hY7tY6UsmI+LVasUqdV3HeDxmcopTjC6hfWSfuH4BqRMkAu+/vysAAAAASUVORK5CYII=&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;CustomId&quot; title=&quot;CustomId&quot; src=&quot;/static/f0dd41ca91ebc2ad85aaff3800924b3b/799d3/custom_field.png&quot; srcset=&quot;/static/f0dd41ca91ebc2ad85aaff3800924b3b/00d96/custom_field.png 148w,
+/static/f0dd41ca91ebc2ad85aaff3800924b3b/0b23c/custom_field.png 295w,
+/static/f0dd41ca91ebc2ad85aaff3800924b3b/799d3/custom_field.png 590w,
+/static/f0dd41ca91ebc2ad85aaff3800924b3b/2a3d6/custom_field.png 885w,
+/static/f0dd41ca91ebc2ad85aaff3800924b3b/da2b8/custom_field.png 984w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;h4&gt;&lt;strong&gt;Fork the sink connector&lt;/strong&gt;&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;confluent &lt;span class=&quot;token builtin class-name&quot;&gt;local&lt;/span&gt; load lead-sink -- -d salesforce-sobject-leads-sink-config.properties&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;&lt;strong&gt;Kafka connect logs&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;You can check the connect logs using the below command.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;confluent &lt;span class=&quot;token builtin class-name&quot;&gt;local&lt;/span&gt; log connect -- -f&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;&lt;strong&gt;Validate the sink connector&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Login to Salesforce org B&lt;/li&gt;
+&lt;li&gt;Open Leads Item from home page &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/static/254e0ed48aed14ea5aa05e1077691f3b/581a4/leads-app.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 74.10714285714286%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAABYlAAAWJQFJUiTwAAACDUlEQVQ4y6WT2W7TQBSG/Wi8CeIGWhYh8QB9iSJEoaJSH4K7Fqk7oSylUOQ2m7PZyUwcL2M7cWx/jB2g3JGWI/3SmZl//jnLHIMip92sk0QhKvC036BrtcjnKaWF/gQxtEliVa2dQQ8phniuRI4cxtovMs3NM7SDEUwzal++Yzluhd3DD+zXzhiMFcEMGr0RZ2aLZl8wiXM+XzT4dFHnR7PHV7Ot0dLcEHsSMVYpxp21txyakq13de6u7/Fs+5Qnb2o8eHnA/Rd7rL464uHrEx5tHrO6ccDjzROebtX03jErG0fVemXjUOOAe8/3MNa290nmBf3JjI5M6LlTLBHTGSd0Nco9S16vK/8XKl7ll2dTGgMPw+xIRJjhBQrHcbiq16taFfzbfnOmScLHs29IraMFRVUr/RjDINORThnqg9JfCiXXT2kOI9xQ17Dl+FVXd3Z26Q8G1Yt5XpAXN8Ei0iybY7QdjzDwabfbRFHEfD6nKJZJ+O/cF/zyrtEdBXgTl063i2VZnJ+fV8ILXrE0/gja+r9JMeLy8qpqyvWjxY1ES4uTGYbwYi1kY5omPR3l/1iW5xhD6eNKSbPRRAhBpCJUGN4YsS6T1PcN4Yb0OhantffY/a7+U/GtBCOlR9X3McYTRazn2dYT0pcKT01vnfIsTRcRqijGFj6jcUCgYt2tlDRdHrNZWnU4DBU/AVFRbu/yL7v/AAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;leads&quot; title=&quot;leads&quot; src=&quot;/static/254e0ed48aed14ea5aa05e1077691f3b/799d3/leads-app.png&quot; srcset=&quot;/static/254e0ed48aed14ea5aa05e1077691f3b/00d96/leads-app.png 148w,
+/static/254e0ed48aed14ea5aa05e1077691f3b/0b23c/leads-app.png 295w,
+/static/254e0ed48aed14ea5aa05e1077691f3b/799d3/leads-app.png 590w,
+/static/254e0ed48aed14ea5aa05e1077691f3b/581a4/leads-app.png 672w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;You should see one entry from org A&lt;/li&gt;
+&lt;li&gt;Edit/Add a record in org A, and it should appear in org B in blink of an eye.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Clean up&lt;/h2&gt;
+&lt;p&gt;Run below command to stop all services and delete data.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;confluent &lt;span class=&quot;token builtin class-name&quot;&gt;local&lt;/span&gt; destroy&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item></channel></rss>
